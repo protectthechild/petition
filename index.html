@@ -1,1 +1,511 @@
-placeholder
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Protect the Child. No Exceptions. — A Public Petition</title>
+<meta name="description" content="No church, no clergy privilege, no religious doctrine should ever stand between an abused child and the authorities. Sign the petition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #131209;
+    --paper: #ece4cd;
+    --paper-dim: #e1d7bb;
+    --paper-line: #cabb92;
+    --ink: #221f16;
+    --ink-soft: #55503e;
+    --stamp: #8a2020;
+    --green: #2f4a35;
+    --muted: #a89f80;
+    --rule-dark: #3a3626;
+    --max: 860px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, #221f14 0%, transparent 60%),
+      radial-gradient(ellipse 900px 600px at 100% 20%, #1c1a12 0%, transparent 55%);
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none; z-index:999; opacity:0.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;}
+  ::selection{background:var(--stamp); color:var(--paper);}
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; letter-spacing:-0.01em;}
+
+  .progress-rail{position:fixed; top:0; left:0; right:0; height:3px; z-index:100; background:var(--rule-dark);}
+  .progress-fill{height:100%; width:100%; transform-origin:left center; transform:scaleX(0);
+    background:linear-gradient(90deg, var(--stamp), #c0453f);
+    box-shadow:0 0 10px 0 rgba(138,32,32,0.7); will-change:transform;}
+
+  .quicknav{position:sticky; top:3px; z-index:50; background:rgba(19,18,9,0.86);
+    backdrop-filter:blur(6px); border-bottom:1px solid var(--rule-dark); padding:0 clamp(20px,5vw,48px);}
+  .quicknav-inner{max-width:var(--max); margin:0 auto; width:100%; display:flex;
+    align-items:center; justify-content:space-between; padding:12px 0;}
+  .quicknav-brand{font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;}
+  .quicknav-links{display:flex; gap:4px; font-family:'IBM Plex Mono', monospace; font-size:0.74rem;}
+  .quicknav-links a{text-decoration:none; color:var(--muted); padding:6px 11px;
+    border:1px solid transparent; border-radius:2px; display:inline-block;
+    transition:color .15s ease, border-color .15s ease, background .15s ease, transform .15s ease;}
+  .quicknav-links a:hover, .quicknav-links a:focus-visible{color:var(--paper); border-color:var(--rule-dark); outline:none; transform:translateY(-1px);}
+  .quicknav-links a.active{color:var(--stamp); background:#8a20201a; border-color:#8a202044;}
+  .quicknav-links a.nav-sign{color:var(--paper); background:var(--stamp); border-color:var(--stamp);
+    font-weight:600; margin-left:6px;}
+  .quicknav-links a.nav-sign:hover, .quicknav-links a.nav-sign:focus-visible{background:#a12626; border-color:#a12626; transform:translateY(-1px);}
+
+  @keyframes fadeUp{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes stampSlam{
+    0%{opacity:0; transform:scale(2.6) rotate(-24deg);}
+    50%{opacity:1; transform:scale(0.82) rotate(10deg);}
+    72%{transform:scale(1.08) rotate(3deg);}
+    100%{opacity:0.9; transform:scale(1) rotate(6deg);}
+  }
+  @keyframes docStampSlam{
+    0%{opacity:0; transform:scale(2.4) rotate(14deg);}
+    50%{opacity:1; transform:scale(0.85) rotate(-9deg);}
+    72%{transform:scale(1.07) rotate(-3deg);}
+    100%{opacity:1; transform:scale(1) rotate(-5deg);}
+  }
+  @keyframes tabDrop{from{opacity:0; transform:translateY(-160%);} to{opacity:1; transform:translateY(0);}}
+  @keyframes panelRise{from{opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);} to{opacity:1; transform:translateY(0) scale(1) rotate(0deg);}}
+
+  .hero{max-width:var(--max); margin:0 auto; padding:clamp(56px,9vw,104px) clamp(20px,5vw,48px) clamp(40px,6vw,64px); position:relative; overflow:hidden;}
+  .hero-filehead{display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--muted); letter-spacing:0.08em;
+    border-bottom:1px dashed var(--rule-dark); padding-bottom:14px; margin-bottom:34px; flex-wrap:wrap; gap:8px;
+    opacity:0; animation:fadeUp .6s ease forwards;}
+  .hero-eyebrow{display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.74rem;
+    letter-spacing:0.16em; color:var(--stamp); text-transform:uppercase; margin-bottom:18px;
+    opacity:0; animation:fadeUp .6s ease forwards; animation-delay:.14s;}
+  .hero h1{font-size:clamp(2.4rem, 6.2vw, 4.2rem); font-weight:600; line-height:1.04; color:var(--paper);
+    max-width:15ch; opacity:0; animation:fadeUp .85s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.26s;}
+  .hero-sub{margin-top:22px; max-width:58ch; font-size:1.1rem; line-height:1.6; color:#cfc6a9;
+    font-weight:500; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.52s;}
+  .hero-cw{margin-top:16px; font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+    color:var(--muted); text-transform:uppercase; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.62s;}
+  .hero-stats{margin-top:44px; display:grid; grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--rule-dark); opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.72s;}
+  .hero-stat{padding:16px 14px 0 0; border-right:1px solid var(--rule-dark);}
+  .hero-stat:last-child{border-right:none;}
+  .hero-stat-num{font-family:'Fraunces', serif; font-size:2rem; font-weight:600; color:var(--paper); font-variant-numeric:tabular-nums;}
+  .hero-stat-label{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.06em;
+    color:var(--muted); margin-top:2px; line-height:1.35;}
+  .stampmark{position:absolute; top:clamp(30px,7vw,58px); right:clamp(10px,4vw,30px);
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.78rem; letter-spacing:0.14em;
+    color:var(--stamp); border:2.5px solid var(--stamp); padding:9px 14px; border-radius:3px;
+    opacity:0; mix-blend-mode:screen; user-select:none;
+    animation:stampSlam .8s cubic-bezier(.2,.9,.3,1.2) forwards; animation-delay:1s;}
+
+  main{max-width:var(--max); margin:0 auto; padding:0 clamp(20px,5vw,48px) 40px;}
+  .exhibit{position:relative; margin-top:64px; scroll-margin-top:80px;}
+  .folder-tab{position:relative; display:inline-flex; align-items:center; gap:8px;
+    background:var(--paper-dim); color:var(--ink); font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.1em; font-weight:600; padding:8px 18px 10px;
+    clip-path:polygon(6% 0, 94% 0, 100% 100%, 0 100%); margin-left:28px; margin-bottom:-1px;
+    opacity:0; transform:translateY(-160%);}
+  .folder-tab .tab-dot{width:6px; height:6px; border-radius:50%; background:var(--stamp); display:inline-block;}
+  .exhibit.in-view .folder-tab{animation:tabDrop .55s cubic-bezier(.2,.8,.3,1.1) forwards;}
+  .panel{background:var(--paper); color:var(--ink); border-radius:2px;
+    padding:clamp(24px,4vw,44px) clamp(20px,4.5vw,44px) clamp(28px,4vw,40px);
+    box-shadow:0 24px 50px -20px rgba(0,0,0,0.55), 0 2px 0 var(--paper-line) inset;
+    position:relative; overflow:hidden; opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);}
+  .exhibit.in-view .panel{animation:panelRise .7s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.12s;}
+  .panel::after{content:""; position:absolute; left:0; right:0; top:0; height:4px;
+    background:repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 11px); opacity:0.12;}
+  .exhibit-head{display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    border-bottom:2px solid var(--ink); padding-bottom:18px; margin-bottom:8px;}
+  .exhibit-kicker{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.14em;
+    color:var(--ink-soft); text-transform:uppercase;}
+  .exhibit-head-text h2{margin-top:6px; font-size:clamp(1.5rem, 3.2vw, 2.1rem); font-weight:600; line-height:1.08;}
+  .doc-stamp{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:0.85rem; letter-spacing:0.12em;
+    color:var(--stamp); border:3px solid var(--stamp); padding:8px 12px; border-radius:4px;
+    white-space:nowrap; flex-shrink:0; margin-top:4px; opacity:0; transform:scale(2.4) rotate(14deg);}
+  .exhibit.in-view .doc-stamp{animation:docStampSlam .6s cubic-bezier(.2,.9,.3,1.2) forwards; animation-delay:.55s;}
+
+  .prose{margin-top:20px;}
+  .prose p{font-size:0.99rem; line-height:1.72; color:var(--ink); margin:0 0 16px; max-width:66ch;}
+  .prose p.soft{color:var(--ink-soft);}
+  .prose p strong{color:var(--stamp);}
+  .pull{border-left:3px solid var(--stamp); background:var(--paper-dim);
+    padding:16px 20px; margin:22px 0; max-width:60ch;}
+  .pull p{font-family:'Fraunces', serif; font-size:1.15rem; line-height:1.5; font-weight:600;
+    color:var(--ink); margin:0;}
+  .pull .answer{display:block; margin-top:10px; font-family:'IBM Plex Mono', monospace;
+    font-size:1rem; letter-spacing:0.14em; color:var(--stamp); font-weight:700;}
+
+  .entries{list-style:none; margin:26px 0 0; padding:0;}
+  .entry{display:grid; grid-template-columns:64px 1fr; gap:18px; padding:22px 0;
+    border-bottom:1px solid var(--paper-line); opacity:0; transform:translateY(18px);
+    transition:opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1); position:relative;}
+  .entry:nth-child(1){transition-delay:.02s;} .entry:nth-child(2){transition-delay:.09s;}
+  .entry.is-visible{opacity:1; transform:translateY(0);}
+  .entry:last-child{border-bottom:none; padding-bottom:6px;}
+  .entry::before{content:""; position:absolute; left:-1px; top:22px; bottom:22px; width:2px;
+    background:var(--stamp); transform:scaleY(0); transform-origin:top;
+    transition:transform .5s cubic-bezier(.16,1,.3,1); transition-delay:inherit;}
+  .entry.is-visible::before{transform:scaleY(1);}
+  .entry-num{font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.85rem;
+    color:var(--stamp); letter-spacing:0.02em; padding-top:2px;}
+  .entry-body h3{font-size:1.12rem; font-weight:600; line-height:1.3; color:var(--ink);}
+  .entry-body p{margin:8px 0 0; font-size:0.98rem; line-height:1.62; color:var(--ink-soft); max-width:64ch;}
+
+  .field-note{max-width:var(--max); margin:52px auto 0; padding:0 clamp(20px,5vw,48px);
+    display:flex; gap:16px; align-items:flex-start; color:var(--muted); font-size:0.92rem; line-height:1.6;
+    opacity:0; transform:translateX(-16px); transition:opacity .6s ease, transform .6s ease;}
+  .field-note.is-visible{opacity:1; transform:translateX(0);}
+  .field-note .mark{font-family:'IBM Plex Mono', monospace; color:var(--stamp); font-size:0.8rem; margin-top:2px;}
+
+  .sign-grid{display:grid; grid-template-columns:1fr 200px; gap:28px; margin-top:22px; align-items:start;}
+  .form-holder{min-height:420px;}
+  .qr-card{background:var(--paper-dim); border:1px solid var(--ink); border-radius:3px;
+    padding:14px; text-align:center;}
+  .qr-card img{width:100%; height:auto; display:block; image-rendering:pixelated;}
+  .qr-card .qr-label{font-family:'IBM Plex Mono', monospace; font-size:0.62rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink); margin:10px 0 2px; font-weight:600;}
+  .qr-card .qr-url{font-family:'IBM Plex Mono', monospace; font-size:0.6rem; color:var(--ink-soft); word-break:break-all;}
+
+  footer{max-width:var(--max); margin:88px auto 0; padding:32px clamp(20px,5vw,48px) 60px;
+    border-top:1px solid var(--rule-dark); opacity:0; transform:translateY(20px);
+    transition:opacity .7s ease, transform .7s ease;}
+  footer.is-visible{opacity:1; transform:translateY(0);}
+  footer p{font-size:0.86rem; line-height:1.7; color:var(--muted); max-width:66ch;}
+  .foot-mono{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+    color:#5f5a44; margin-top:18px; text-transform:uppercase;}
+  footer a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--rule-dark);}
+  footer a:hover{color:var(--paper); text-decoration-color:var(--stamp);}
+
+  @media (max-width: 640px){
+    .hero-stats{grid-template-columns:repeat(2,1fr);}
+    .hero-stat:nth-child(2){border-right:none;}
+    .hero-stat{border-bottom:1px solid var(--rule-dark); padding-bottom:14px;}
+    .quicknav-inner{flex-wrap:wrap; justify-content:center; gap:4px; padding:8px 0;}
+    .quicknav-brand{display:none;}
+    .quicknav-links{flex-wrap:wrap; justify-content:center;}
+    .quicknav-links a{padding:6px 8px; font-size:0.68rem;}
+    .exhibit-head{flex-direction:column;}
+    .doc-stamp{align-self:flex-start;}
+    .stampmark{display:none;}
+    .sign-grid{grid-template-columns:1fr;}
+    .qr-card{max-width:220px; margin:0 auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<nav class="quicknav" aria-label="Section navigation">
+  <div class="quicknav-inner">
+    <span class="quicknav-brand">Protect the Child · A RebuttaLDS.org Project</span>
+    <div class="quicknav-links">
+      <a href="#facts" data-nav>The Facts</a>
+      <a href="#position" data-nav>The Position</a>
+      <a href="#principle" data-nav>The Principle</a>
+      <a href="#demand" data-nav>The Demand</a>
+      <a href="#sign" class="nav-sign">Sign Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="stampmark">OPEN<br>CASE</div>
+  <div class="hero-filehead">
+    <span>A Public Petition</span>
+    <span>Adams v. silence · Arizona</span>
+  </div>
+  <span class="hero-eyebrow">Petition · Protect the Child</span>
+  <h1>Protect the child.<br>No exceptions.</h1>
+  <p class="hero-sub">No church. No clergy privilege. No religious doctrine should ever stand
+    between an abused child and the authorities.</p>
+  <p class="hero-cw">Content note: this page describes the sexual abuse of children.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-count="7">0</div>
+      <div class="hero-stat-label">Years of abuse after<br>the first confession</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-count="2">0</div>
+      <div class="hero-stat-label">Bishops who knew<br>and did not report</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-count="2">0</div>
+      <div class="hero-stat-label">Children abused<br>in that home</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-count="1">0</div>
+      <div class="hero-stat-label">Demand:<br>report it. every time.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- THE FACTS -->
+  <section class="exhibit" id="facts">
+    <div class="folder-tab"><span class="tab-dot"></span> EXHIBIT A</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">01 / The Record</span>
+          <h2>The Facts</h2>
+        </div>
+        <span class="doc-stamp">DOCUMENTED</span>
+      </div>
+      <div class="prose">
+        <p>She was approximately five years old when her father, Paul Adams, admitted to his
+          Mormon bishop that he was sexually abusing her. That should have been the moment it ended.</p>
+        <p>The bishop contacted the abuse "help line" established by The Church of Jesus Christ of
+          Latter-day Saints. According to the Associated Press investigation, the call was referred
+          to lawyers for the Church, and Bishop John Herrod was told not to report the abuse to
+          police or child-welfare authorities. Herrod later told federal investigators that he had
+          been told, <strong>"You absolutely can do nothing."</strong> A second bishop, Robert
+          "Kim" Mauzy, subsequently learned about the abuse. He too consulted Church officials and
+          received the same answer.</p>
+        <p>So nobody called the police. And while adults protected confidentiality, a child
+          remained in the home with the man who was sexually abusing her. The abuse continued
+          for years.</p>
+        <p>Then the almost unimaginable happened: another daughter was born into that same home.
+          According to the court record, her father began sexually assaulting her when she was six
+          weeks old. Paul Adams abused the infant, recorded his abuse, and distributed child sexual
+          abuse material online.</p>
+        <p>The Church did not ultimately expose him. Authorities thousands of miles away did.
+          After investigators in New Zealand discovered one of the videos — footage of Adams
+          raping his then-ten-year-old daughter — an international investigation eventually
+          identified him. Federal authorities arrested Adams in 2017.</p>
+        <p><strong>Seven years had passed since he confessed his crimes to the first bishop.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE POSITION -->
+  <section class="exhibit" id="position">
+    <div class="folder-tab"><span class="tab-dot"></span> EXHIBIT B</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">02 / The Defense</span>
+          <h2>The Church's Position</h2>
+        </div>
+        <span class="doc-stamp">LEGAL ≠ MORAL</span>
+      </div>
+      <div class="prose">
+        <p>This distinction matters: <strong>Paul Adams was the abuser.</strong> The Mormon Church
+          did not create his depravity. Horrifically disturbed individuals can exist in any
+          religion, institution, community, or family. But the Church's choices allowed these
+          crimes to continue for an additional seven years — and against a second child.</p>
+        <p>What this petition condemns is what happened after supposedly responsible adults
+          learned that a child was being sexually abused.</p>
+        <p>The Church's position has been that its bishops were legally permitted not to report
+          Adams, because Arizona law contains a clergy reporting exemption for confidential
+          religious communications. The Church defended that position through years of litigation,
+          at enormous expense.</p>
+        <p class="soft">This case does not exist in a historical vacuum. The Church's own
+          published history acknowledges that its founder, Joseph Smith, entered plural marriages
+          or sealings with more than thirty women — including fourteen-year-old Helen Mar Kimball,
+          and some women already married to other men. His successor, Brigham Young, continued
+          plural marriage and married at least one fifteen-year-old girl. These are not
+          allegations invented by critics; they are facts documented in records published by the
+          Church itself.</p>
+        <p>And on July 30, 2026, the Arizona Supreme Court ruled that the First Amendment
+          generally prevents courts and juries from second-guessing a clergy member's application
+          of religious doctrine in deciding whether keeping such a confession confidential is
+          "reasonable and necessary." The result was a victory for the Church in the Adams
+          children's civil case.</p>
+        <p><strong>But legal does not mean moral.</strong></p>
+        <div class="pull">
+          <p>If an adult learns that a child is being sexually abused, should any religious rule
+            permit that adult to keep it secret?
+            <span class="answer">OUR ANSWER IS: NO.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PRINCIPLE -->
+  <section class="exhibit" id="principle">
+    <div class="folder-tab"><span class="tab-dot"></span> EXHIBIT C</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">03 / Common Ground</span>
+          <h2>Protect the Child. Every Time.</h2>
+        </div>
+        <span class="doc-stamp">NO EXCEPTIONS</span>
+      </div>
+      <div class="prose">
+        <p>We can disagree about almost everything else.</p>
+        <p>We can disagree about God. We can disagree about religion. We can disagree about
+          scripture, salvation, an afterlife, heaven, atheism, agnosticism — or whether human
+          beings have even begun to understand the ultimate nature of our existence. None of us
+          can prove those answers with absolute certainty.</p>
+        <p>But there is something we do know.</p>
+        <p><strong>Children are real. Their suffering is real. And our obligation to protect them
+          is real.</strong></p>
+        <p>No confession, ecclesiastical privilege, institutional reputation, legal strategy, or
+          religious doctrine should ever be placed above the immediate safety of a child.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE DEMAND -->
+  <section class="exhibit" id="demand">
+    <div class="folder-tab"><span class="tab-dot"></span> EXHIBIT D</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">04 / What We Are Asking</span>
+          <h2>The Demand</h2>
+        </div>
+        <span class="doc-stamp">TWO COMMITMENTS</span>
+      </div>
+      <div class="prose">
+        <p>We call upon The Church of Jesus Christ of Latter-day Saints to make two unequivocal
+          commitments.</p>
+      </div>
+      <ol class="entries">
+        <li class="entry">
+          <span class="entry-num">D–1</span>
+          <div class="entry-body">
+            <h3>Report every credible case of child abuse to civil authorities — immediately.</h3>
+            <p>Whenever any bishop, stake president, clergy member, employee, volunteer,
+              attorney-directed help line, or other Church institution receives credible
+              information that a child is being sexually abused or exploited, the Church will
+              ensure the abuse is immediately reported to the appropriate civil authorities —
+              regardless of whether a jurisdiction allows clergy to remain silent. No confessional
+              privilege. No internal investigation in place of law enforcement. No institutional
+              discretion when a child may still be in danger.</p>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-num">D–2</span>
+          <div class="entry-body">
+            <h3>Publicly acknowledge and apologize.</h3>
+            <p>For both its handling of the Adams case and the documented marital practices
+              involving adolescent girls under Joseph Smith and Brigham Young — including Joseph
+              Smith's plural sealings to women who were already married.</p>
+          </div>
+        </li>
+      </ol>
+      <div class="prose">
+        <p style="margin-top:18px;">The demand is not complicated: <strong>protect children before
+          protecting the Church.</strong> If the Church believes that what happened in the Adams
+          case should never happen again, it should be willing to say so in the clearest possible
+          terms — and change its worldwide policy accordingly.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="field-note">
+    <span class="mark">→</span>
+    <p>You've read the record. Now add your name — it takes a moment to stand with children who
+      cannot stand up for themselves.</p>
+  </div>
+
+  <!-- SIGN -->
+  <section class="exhibit" id="sign">
+    <div class="folder-tab"><span class="tab-dot"></span> EXHIBIT E</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">05 / Add Your Voice</span>
+          <h2>Sign the Petition</h2>
+        </div>
+        <span class="doc-stamp">SIGN &amp; SHARE</span>
+      </div>
+      <div class="sign-grid">
+        <div class="form-holder">
+          <script type="text/javascript" src="https://form.jotform.com/jsform/262474402246151"></script>
+        </div>
+        <div class="qr-card">
+          <img src="data:image/png;base64,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" alt="QR code linking to this petition at protectthechild.github.io/petition">
+          <div class="qr-label">Sharing in print?</div>
+          <div class="qr-url">protectthechild.github.io/petition</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <p>Sign it. Share it. Demand change. Protect the child — no exceptions.</p>
+  <p>Presented by <a href="https://rebuttalds.org" target="_blank" rel="noopener">RebuttaLDS.org</a>.
+    The factual record above draws on the Associated Press investigation, federal court records,
+    and the Church's own published history. Share this page and its text freely.</p>
+  <p class="foot-mono">© 2026 RebuttaLDS.org · Protect the Child</p>
+</footer>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const progressFill = document.getElementById('progressFill');
+  function updateProgress(){
+    const el = document.documentElement;
+    const max = el.scrollHeight - el.clientHeight;
+    progressFill.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, el.scrollTop / max) : 0) + ')';
+  }
+  let progTicking = false;
+  window.addEventListener('scroll', () => {
+    if(!progTicking){ requestAnimationFrame(() => { updateProgress(); progTicking = false; }); progTicking = true; }
+  }, { passive:true });
+  updateProgress();
+
+  function animateCount(el){
+    const target = parseInt(el.dataset.count, 10) || 0;
+    if (reduceMotion){ el.textContent = String(target); return; }
+    const dur = 900, start = performance.now();
+    function tick(now){
+      const p = Math.min(1, (now - start) / dur);
+      el.textContent = String(Math.round((1 - Math.pow(1 - p, 3)) * target));
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  setTimeout(() => document.querySelectorAll('.hero-stat-num').forEach(animateCount), reduceMotion ? 0 : 1250);
+
+  const exhibits = document.querySelectorAll('.exhibit');
+  const entries = document.querySelectorAll('.entry');
+  const fades = document.querySelectorAll('.field-note, #footer');
+  function observe(list, cls, opts){
+    if (reduceMotion || !('IntersectionObserver' in window)){ list.forEach(el => el.classList.add(cls)); return; }
+    const io = new IntersectionObserver((items) => {
+      items.forEach(item => { if (item.isIntersecting){ item.target.classList.add(cls); io.unobserve(item.target); } });
+    }, opts);
+    list.forEach(el => io.observe(el));
+  }
+  observe(exhibits, 'in-view', { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  observe(entries, 'is-visible', { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  observe(fades, 'is-visible', { threshold: 0.3 });
+
+  const navLinks = document.querySelectorAll('.quicknav-links a[data-nav]');
+  if ('IntersectionObserver' in window) {
+    const navIO = new IntersectionObserver((items) => {
+      items.forEach(item => {
+        const link = document.querySelector('.quicknav-links a[href="#' + item.target.id + '"]');
+        if (item.isIntersecting) { navLinks.forEach(l => l.classList.remove('active')); if (link) link.classList.add('active'); }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+    exhibits.forEach(s => navIO.observe(s));
+  }
+</script>
+
+</body>
+</html>
