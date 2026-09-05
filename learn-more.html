@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Learn More — Six Themes | Protect the Child</title>
+<meta name="description" content="Six documented themes behind the Protect the Child petition: child protection failures, financial opacity, patriarchy, engineered persuasion, the priesthood ban, and the doctrine of exclusivity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #131209;
+    --paper: #ece4cd;
+    --paper-dim: #e1d7bb;
+    --paper-line: #cabb92;
+    --ink: #221f16;
+    --ink-soft: #55503e;
+    --stamp: #8a2020;
+    --green: #2f4a35;
+    --muted: #a89f80;
+    --rule-dark: #3a3626;
+    --max: 860px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, #221f14 0%, transparent 60%),
+      radial-gradient(ellipse 900px 600px at 100% 20%, #1c1a12 0%, transparent 55%);
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none; z-index:999; opacity:0.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;}
+  ::selection{background:var(--stamp); color:var(--paper);}
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; letter-spacing:-0.01em;}
+
+  .progress-rail{position:fixed; top:0; left:0; right:0; height:3px; z-index:100; background:var(--rule-dark);}
+  .progress-fill{height:100%; width:100%; transform-origin:left center; transform:scaleX(0);
+    background:linear-gradient(90deg, var(--stamp), #c0453f);
+    box-shadow:0 0 10px 0 rgba(138,32,32,0.7); will-change:transform;}
+
+  .quicknav{position:sticky; top:3px; z-index:50; background:rgba(19,18,9,0.86);
+    backdrop-filter:blur(6px); border-bottom:1px solid var(--rule-dark); padding:0 clamp(20px,5vw,48px);}
+  .quicknav-inner{max-width:var(--max); margin:0 auto; width:100%; display:flex;
+    align-items:center; justify-content:space-between; padding:12px 0;}
+  .quicknav-brand{font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;}
+  .quicknav-links{display:flex; gap:4px; font-family:'IBM Plex Mono', monospace; font-size:0.74rem;}
+  .quicknav-links a{text-decoration:none; color:var(--muted); padding:6px 11px;
+    border:1px solid transparent; border-radius:2px; display:inline-block;
+    transition:color .15s ease, border-color .15s ease, background .15s ease, transform .15s ease;}
+  .quicknav-links a:hover, .quicknav-links a:focus-visible{color:var(--paper); border-color:var(--rule-dark); outline:none; transform:translateY(-1px);}
+  .quicknav-links a.active{color:var(--stamp); background:#8a20201a; border-color:#8a202044;}
+  .quicknav-links a.nav-sign{color:var(--paper); background:var(--stamp); border-color:var(--stamp);
+    font-weight:600; margin-left:6px;}
+  .quicknav-links a.nav-sign:hover, .quicknav-links a.nav-sign:focus-visible{background:#a12626; border-color:#a12626; transform:translateY(-1px);}
+
+  @keyframes fadeUp{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes stampSlam{
+    0%{opacity:0; transform:scale(2.6) rotate(-24deg);}
+    50%{opacity:1; transform:scale(0.82) rotate(10deg);}
+    72%{transform:scale(1.08) rotate(3deg);}
+    100%{opacity:0.9; transform:scale(1) rotate(6deg);}
+  }
+  @keyframes docStampSlam{
+    0%{opacity:0; transform:scale(2.4) rotate(14deg);}
+    50%{opacity:1; transform:scale(0.85) rotate(-9deg);}
+    72%{transform:scale(1.07) rotate(-3deg);}
+    100%{opacity:1; transform:scale(1) rotate(-5deg);}
+  }
+  @keyframes tabDrop{from{opacity:0; transform:translateY(-160%);} to{opacity:1; transform:translateY(0);}}
+  @keyframes panelRise{from{opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);} to{opacity:1; transform:translateY(0) scale(1) rotate(0deg);}}
+
+  .hero{max-width:var(--max); margin:0 auto; padding:clamp(56px,9vw,104px) clamp(20px,5vw,48px) clamp(40px,6vw,64px); position:relative; overflow:hidden;}
+  .hero-filehead{display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--muted); letter-spacing:0.08em;
+    border-bottom:1px dashed var(--rule-dark); padding-bottom:14px; margin-bottom:34px; flex-wrap:wrap; gap:8px;
+    opacity:0; animation:fadeUp .6s ease forwards;}
+  .hero-eyebrow{display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.74rem;
+    letter-spacing:0.16em; color:var(--stamp); text-transform:uppercase; margin-bottom:18px;
+    opacity:0; animation:fadeUp .6s ease forwards; animation-delay:.14s;}
+  .hero h1{font-size:clamp(2.4rem, 6.2vw, 4.2rem); font-weight:600; line-height:1.04; color:var(--paper);
+    max-width:15ch; opacity:0; animation:fadeUp .85s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.26s;}
+  .hero-sub{margin-top:22px; max-width:58ch; font-size:1.1rem; line-height:1.6; color:#cfc6a9;
+    font-weight:500; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.52s;}
+  .hero-cw{margin-top:16px; font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+    color:var(--muted); text-transform:uppercase; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.62s;}
+  .hero-stats{margin-top:44px; display:grid; grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--rule-dark); opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.72s;}
+  .hero-stat{padding:16px 14px 0 0; border-right:1px solid var(--rule-dark);}
+  .hero-stat:last-child{border-right:none;}
+  .hero-stat-num{font-family:'Fraunces', serif; font-size:2rem; font-weight:600; color:var(--paper); font-variant-numeric:tabular-nums;}
+  .hero-stat-label{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.06em;
+    color:var(--muted); margin-top:2px; line-height:1.35;}
+  .stampmark{position:absolute; top:clamp(30px,7vw,58px); right:clamp(10px,4vw,30px);
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.78rem; letter-spacing:0.14em;
+    color:var(--stamp); border:2.5px solid var(--stamp); padding:9px 14px; border-radius:3px;
+    opacity:0; mix-blend-mode:screen; user-select:none;
+    animation:stampSlam .8s cubic-bezier(.2,.9,.3,1.2) forwards; animation-delay:1s;}
+
+  main{max-width:var(--max); margin:0 auto; padding:0 clamp(20px,5vw,48px) 40px;}
+  .exhibit{position:relative; margin-top:64px; scroll-margin-top:80px;}
+  .folder-tab{position:relative; display:inline-flex; align-items:center; gap:8px;
+    background:var(--paper-dim); color:var(--ink); font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.1em; font-weight:600; padding:8px 18px 10px;
+    clip-path:polygon(6% 0, 94% 0, 100% 100%, 0 100%); margin-left:28px; margin-bottom:-1px;
+    opacity:0; transform:translateY(-160%);}
+  .folder-tab .tab-dot{width:6px; height:6px; border-radius:50%; background:var(--stamp); display:inline-block;}
+  .exhibit.in-view .folder-tab{animation:tabDrop .55s cubic-bezier(.2,.8,.3,1.1) forwards;}
+  .panel{background:var(--paper); color:var(--ink); border-radius:2px;
+    padding:clamp(24px,4vw,44px) clamp(20px,4.5vw,44px) clamp(28px,4vw,40px);
+    box-shadow:0 24px 50px -20px rgba(0,0,0,0.55), 0 2px 0 var(--paper-line) inset;
+    position:relative; overflow:hidden; opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);}
+  .exhibit.in-view .panel{animation:panelRise .7s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.12s;}
+  .panel::after{content:""; position:absolute; left:0; right:0; top:0; height:4px;
+    background:repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 11px); opacity:0.12;}
+  .exhibit-head{display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    border-bottom:2px solid var(--ink); padding-bottom:18px; margin-bottom:8px;}
+  .exhibit-kicker{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.14em;
+    color:var(--ink-soft); text-transform:uppercase;}
+  .exhibit-head-text h2{margin-top:6px; font-size:clamp(1.5rem, 3.2vw, 2.1rem); font-weight:600; line-height:1.08;}
+  .doc-stamp{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:0.85rem; letter-spacing:0.12em;
+    color:var(--stamp); border:3px solid var(--stamp); padding:8px 12px; border-radius:4px;
+    white-space:nowrap; flex-shrink:0; margin-top:4px; opacity:0; transform:scale(2.4) rotate(14deg);}
+  .exhibit.in-view .doc-stamp{animation:docStampSlam .6s cubic-bezier(.2,.9,.3,1.2) forwards; animation-delay:.55s;}
+
+  .prose{margin-top:20px;}
+  .prose p{font-size:0.99rem; line-height:1.72; color:var(--ink); margin:0 0 16px; max-width:66ch;}
+  .prose p.soft{color:var(--ink-soft);}
+  .prose p strong{color:var(--stamp);}
+  .pull{border-left:3px solid var(--stamp); background:var(--paper-dim);
+    padding:16px 20px; margin:22px 0; max-width:60ch;}
+  .pull p{font-family:'Fraunces', serif; font-size:1.15rem; line-height:1.5; font-weight:600;
+    color:var(--ink); margin:0;}
+  .pull .answer{display:block; margin-top:10px; font-family:'IBM Plex Mono', monospace;
+    font-size:1rem; letter-spacing:0.14em; color:var(--stamp); font-weight:700;}
+
+  .entries{list-style:none; margin:26px 0 0; padding:0;}
+  .entry{display:grid; grid-template-columns:64px 1fr; gap:18px; padding:22px 0;
+    border-bottom:1px solid var(--paper-line); opacity:0; transform:translateY(18px);
+    transition:opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1); position:relative;}
+  .entry:nth-child(1){transition-delay:.02s;} .entry:nth-child(2){transition-delay:.09s;}
+  .entry.is-visible{opacity:1; transform:translateY(0);}
+  .entry:last-child{border-bottom:none; padding-bottom:6px;}
+  .entry::before{content:""; position:absolute; left:-1px; top:22px; bottom:22px; width:2px;
+    background:var(--stamp); transform:scaleY(0); transform-origin:top;
+    transition:transform .5s cubic-bezier(.16,1,.3,1); transition-delay:inherit;}
+  .entry.is-visible::before{transform:scaleY(1);}
+  .entry-num{font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.85rem;
+    color:var(--stamp); letter-spacing:0.02em; padding-top:2px;}
+  .entry-body h3{font-size:1.12rem; font-weight:600; line-height:1.3; color:var(--ink);}
+  .entry-body p{margin:8px 0 0; font-size:0.98rem; line-height:1.62; color:var(--ink-soft); max-width:64ch;}
+
+  .field-note{max-width:var(--max); margin:52px auto 0; padding:0 clamp(20px,5vw,48px);
+    display:flex; gap:16px; align-items:flex-start; color:var(--muted); font-size:0.92rem; line-height:1.6;
+    opacity:0; transform:translateX(-16px); transition:opacity .6s ease, transform .6s ease;}
+  .field-note.is-visible{opacity:1; transform:translateX(0);}
+  .field-note .mark{font-family:'IBM Plex Mono', monospace; color:var(--stamp); font-size:0.8rem; margin-top:2px;}
+
+  .sign-grid{display:grid; grid-template-columns:1fr 200px; gap:28px; margin-top:22px; align-items:start;}
+  .form-holder{min-height:420px;}
+  .qr-card{background:var(--paper-dim); border:1px solid var(--ink); border-radius:3px;
+    padding:14px; text-align:center;}
+  .qr-card img{width:100%; height:auto; display:block; image-rendering:pixelated;}
+  .qr-card .qr-label{font-family:'IBM Plex Mono', monospace; font-size:0.62rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink); margin:10px 0 2px; font-weight:600;}
+  .qr-card .qr-url{font-family:'IBM Plex Mono', monospace; font-size:0.6rem; color:var(--ink-soft); word-break:break-all;}
+
+  footer{max-width:var(--max); margin:88px auto 0; padding:32px clamp(20px,5vw,48px) 60px;
+    border-top:1px solid var(--rule-dark); opacity:0; transform:translateY(20px);
+    transition:opacity .7s ease, transform .7s ease;}
+  footer.is-visible{opacity:1; transform:translateY(0);}
+  footer p{font-size:0.86rem; line-height:1.7; color:var(--muted); max-width:66ch;}
+  .foot-mono{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+    color:#5f5a44; margin-top:18px; text-transform:uppercase;}
+  .foot-legal{margin-top:28px; padding-top:20px; border-top:1px dashed var(--rule-dark);
+    opacity:0; transform:translateY(14px);
+    transition:opacity .7s ease .25s, transform .7s ease .25s;}
+  footer.is-visible .foot-legal{opacity:1; transform:translateY(0);}
+  .foot-speech{font-size:0.8rem; line-height:1.7; color:#87805f; margin:0; max-width:70ch;}
+  .foot-speech a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--rule-dark); white-space:nowrap;
+    transition:color .15s ease, text-decoration-color .15s ease;}
+  .foot-speech a:hover, .foot-speech a:focus-visible{color:var(--paper);
+    text-decoration-color:var(--stamp); outline:none;}
+  footer a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--rule-dark);}
+  footer a:hover{color:var(--paper); text-decoration-color:var(--stamp);}
+
+  @media (max-width: 640px){
+    .hero-stats{grid-template-columns:repeat(2,1fr);}
+    .hero-stat:nth-child(2){border-right:none;}
+    .hero-stat{border-bottom:1px solid var(--rule-dark); padding-bottom:14px;}
+    .quicknav-inner{flex-wrap:wrap; justify-content:center; gap:4px; padding:8px 0;}
+    .quicknav-brand{display:none;}
+    .quicknav-links{flex-wrap:wrap; justify-content:center;}
+    .quicknav-links a{padding:6px 8px; font-size:0.68rem;}
+    .exhibit-head{flex-direction:column;}
+    .doc-stamp{align-self:flex-start;}
+    .stampmark{display:none;}
+    .sign-grid{grid-template-columns:1fr;}
+    .qr-card{max-width:220px; margin:0 auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<nav class="quicknav" aria-label="Section navigation">
+  <div class="quicknav-inner">
+    <span class="quicknav-brand">Protect the Child · Learn More</span>
+    <div class="quicknav-links">
+      <a href="index.html">← Petition</a>
+      <a href="#theme-1" data-nav>I</a>
+      <a href="#theme-2" data-nav>II</a>
+      <a href="#theme-3" data-nav>III</a>
+      <a href="#theme-4" data-nav>IV</a>
+      <a href="#theme-5" data-nav>V</a>
+      <a href="#theme-6" data-nav>VI</a>
+      <a href="https://rebuttalds.org" target="_blank" rel="noopener" class="nav-sign">RebuttaLDS.org →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="stampmark">SUPPORTING<br>BRIEF</div>
+  <div class="hero-filehead">
+    <span>Learn More · Six Themes</span>
+    <span>Companion to the petition</span>
+  </div>
+  <span class="hero-eyebrow">The Case, Expanded</span>
+  <h1>Six themes.<br>One pattern.</h1>
+  <p class="hero-sub">The Adams case is the sharpest example, but it is not an isolated one.
+    These six themes place it in context — each grounded in court records, investigative
+    journalism, and the Church's own published history.</p>
+  <p class="hero-cw">Content note: this page discusses the sexual abuse of children.</p>
+</header>
+
+<main>
+
+  <!-- THEME 1 -->
+  <section class="exhibit" id="theme-1">
+    <div class="folder-tab"><span class="tab-dot"></span> THEME I</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">01 / Pedophilia</span>
+          <h2>Minors, Marriage, and the Failure to Protect</h2>
+        </div>
+        <span class="doc-stamp">DOCUMENTED</span>
+      </div>
+      <div class="prose">
+        <p>This is not an accusation invented by critics; the record is the Church's own. Its
+          published history acknowledges that founder Joseph Smith was sealed to roughly 30 to 40
+          women — the youngest, Helen Mar Kimball, several months before her fifteenth birthday —
+          and to women who were already married to living men. His successor, Brigham Young,
+          continued plural marriage and married at least one fifteen-year-old girl. Whatever
+          theological framing is placed around these unions, the ages are facts.</p>
+        <p>The modern institution inherited not the practice but the reflex: when a child's
+          safety collided with the institution's interests, the institution protected itself. In
+          the Adams case, a father confessed to sexually abusing his daughter, the Church's
+          attorney-staffed help line advised the bishop that he could do nothing, and the abuse
+          continued for seven more years — expanding to an infant sibling — until foreign law
+          enforcement, not the Church, ended it. The Associated Press investigation that exposed
+          the help line found it functioned to route abuse reports toward legal risk management
+          rather than toward the police.</p>
+        <p><strong>The Adams case was not an aberration. It was the predictable output of a
+          system designed to shield the institution first and the child second.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEME 2 -->
+  <section class="exhibit" id="theme-2">
+    <div class="folder-tab"><span class="tab-dot"></span> THEME II</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">02 / Financial Corruption</span>
+          <h2>A $100 Billion Question of Trust</h2>
+        </div>
+        <span class="doc-stamp">UNAUDITED</span>
+      </div>
+      <div class="prose">
+        <p>The Church requires a full tithe — ten percent of income — as a condition of temple
+          worthiness, collecting billions annually from members including those of modest means.
+          Yet it has not published financial statements in the United States since 1959. Members
+          who fund the institution are not permitted to see what it does with their money.</p>
+        <p>What is known arrived through a whistleblower: an investment reserve, Ensign Peak
+          Advisors, exceeding $100 billion. In 2023, the U.S. Securities and Exchange Commission
+          fined the Church and its investment arm $5 million for using thirteen shell companies
+          to obscure the fund's holdings from public disclosure over two decades — a finding of
+          deliberate concealment, on the record, from a federal regulator.</p>
+        <p>The labor model completes the picture. The sales force acquiring new members —
+          tithe-payers — consists of eighteen- and nineteen-year-olds serving up to two years
+          unpaid, typically funding their own missions. <strong>A hundred-billion-dollar
+          institution staffs its growth engine with the free labor of teenagers and asks its
+          poorest members for ten percent.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEME 3 -->
+  <section class="exhibit" id="theme-3">
+    <div class="folder-tab"><span class="tab-dot"></span> THEME III</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">03 / Chauvinism</span>
+          <h2>A Patriarchy by Design</h2>
+        </div>
+        <span class="doc-stamp">MALE-ONLY</span>
+      </div>
+      <div class="prose">
+        <p>Every position of presiding authority in the Church — prophet, apostle, seventy, stake
+          president, bishop — is reserved for men. Women cannot hold the priesthood, preside over
+          congregations, or sit in the councils where doctrine and policy are made. This is not a
+          cultural lag the institution is working through; it is the institution's design,
+          defended as divine order.</p>
+        <p>The structure reaches into private life. Until 2019, temple ceremonies had women
+          covenant to "hearken" to their husbands while men covenanted directly to God. Girls and
+          women are routinely interviewed behind closed doors by untrained adult male clergy —
+          interviews that have historically included explicit questions about sexual conduct, a
+          practice that drew organized protest from within the membership itself.</p>
+        <p><strong>A system in which men hold every key, judge every worthiness, and speak for
+          God to women is not complementary. It is control, formalized.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEME 4 -->
+  <section class="exhibit" id="theme-4">
+    <div class="folder-tab"><span class="tab-dot"></span> THEME IV</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">04 / Psychological Warfare</span>
+          <h2>The Architecture of Persuasion</h2>
+        </div>
+        <span class="doc-stamp">BY DESIGN</span>
+      </div>
+      <div class="prose">
+        <p>The Church has refined its conversion method for over 150 years, and it is taught,
+          scripted, and rehearsed. Missionaries are trained in a "commitment pattern" — build
+          the relationship first, invite commitments early, and route every doubt toward prayer
+          and feeling rather than evidence. Investigators are taught that a warm emotional
+          response is the voice of God confirming the Church's claims, and that doubt is a
+          spiritual failing in themselves.</p>
+        <p>The epistemology is self-sealing by design. An apostle famously taught that "a
+          testimony is to be found in the bearing of it" — say you believe until you do. Members
+          are warned away from critical sources as spiritually dangerous, historical problems are
+          reframed as tests of faith, and leaving carries engineered social cost: family strain,
+          community loss, eternal consequence. Critics apply the vocabulary of high-demand-group
+          research — behavior, information, thought, and emotional control — because the pattern
+          fits.</p>
+        <p><strong>None of this requires bad individuals. It requires only a system that rewards
+          persuasion and punishes scrutiny — refined, generation after generation, into the
+          friendliest hard sell in America.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEME 5 -->
+  <section class="exhibit" id="theme-5">
+    <div class="folder-tab"><span class="tab-dot"></span> THEME V</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">05 / Racism</span>
+          <h2>The Ban and the Folklore</h2>
+        </div>
+        <span class="doc-stamp">UNTIL 1978</span>
+      </div>
+      <div class="prose">
+        <p>From 1852 until 1978 — through the Civil War, Reconstruction, and the entire civil
+          rights movement — the Church barred Black members from its priesthood and from the
+          temple ordinances it teaches are required for the highest salvation. Prophets and
+          apostles taught, as doctrine, that Black skin marked the curse of Cain, that Black
+          people had been less valiant in a premortal life, and that the ban was the will of God.</p>
+        <p>The ban ended in 1978, when heaven's timing happened to coincide with mounting
+          public pressure, university boycotts, and the Church's expansion into Brazil. It took
+          another thirty-five years — until a 2013 essay — for the institution to formally
+          disavow the curse-of-Cain and premortal-valiance teachings as folklore, without ever
+          identifying the prophets who taught them as having been wrong.</p>
+        <p><strong>An institution claiming continuous divine guidance was, on the question of
+          basic human equality, decades behind the society it claimed to be sent to save.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEME 6 -->
+  <section class="exhibit" id="theme-6">
+    <div class="folder-tab"><span class="tab-dot"></span> THEME VI</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">06 / Arrogance</span>
+          <h2>The Doctrine of Exclusivity</h2>
+        </div>
+        <span class="doc-stamp">MEMBERS ONLY</span>
+      </div>
+      <div class="prose">
+        <p>The Church teaches, in its own canon, that it is "the only true and living church upon
+          the face of the whole earth." From that premise flows a quiet hierarchy of families:
+          only marriages sealed in its temples endure eternally, which means every other family
+          on earth — every marriage, every parent and child bound by love alone — is, by
+          doctrine, temporary.</p>
+        <p>The arrogance is not abstract. Parents and siblings who are not members in good
+          standing cannot enter the temple to watch their own child be married; for generations,
+          they waited outside. And the Church extends its claim even past death, performing proxy
+          baptisms for the deceased of every faith — including, repeatedly and despite formal
+          agreements to stop, Holocaust victims.</p>
+        <p><strong>A doctrine that ranks its own families above all others — in this life and the
+          next — should expect to be judged by how it treated the most vulnerable inside its
+          walls. That record is the reason this petition exists.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="field-note">
+    <span class="mark">→</span>
+    <p>These themes are why the demand matters. Read the case, then add your name.</p>
+  </div>
+
+  <section class="exhibit" id="act">
+    <div class="folder-tab"><span class="tab-dot"></span> NEXT STEP</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">07 / Act</span>
+          <h2>Two Ways to Push Back</h2>
+        </div>
+        <span class="doc-stamp">SIGN &amp; SHARE</span>
+      </div>
+      <div class="prose">
+        <p><strong><a href="index.html#sign" style="color:var(--stamp);">Sign the petition →</a></strong>
+          Add your name to the demand that the Church report every credible case of child abuse
+          to civil authorities, everywhere, without exception.</p>
+        <p><strong><a href="https://rebuttalds.org" target="_blank" rel="noopener" style="color:var(--stamp);">Get the tools at RebuttaLDS.org →</a></strong>
+          The full research dossier, the printable doorstep cheat sheet, and counterarguments to
+          the persuasion tactics described above — free, sourced to the Church's own publications.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <p>Presented by <a href="https://rebuttalds.org" target="_blank" rel="noopener">RebuttaLDS.org</a>.
+    The record above draws on the Associated Press investigation, federal court and SEC records,
+    and the Church's own published essays and canon. Share this page and its text freely.</p>
+  <p class="foot-mono">© 2026 RebuttaLDS.org · Protect the Child</p>
+
+  <div class="foot-legal">
+    <p class="foot-speech">Criticism of religious institutions, their history, and their doctrines
+      is speech protected by the First Amendment to the United States Constitution, which prohibits
+      laws abridging the freedom of speech or of the press.
+      <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank"
+         rel="noopener">Read the First Amendment at constitution.congress.gov&nbsp;→</a></p>
+  </div>
+</footer>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const progressFill = document.getElementById('progressFill');
+  function updateProgress(){
+    const el = document.documentElement;
+    const max = el.scrollHeight - el.clientHeight;
+    progressFill.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, el.scrollTop / max) : 0) + ')';
+  }
+  let progTicking = false;
+  window.addEventListener('scroll', () => {
+    if(!progTicking){ requestAnimationFrame(() => { updateProgress(); progTicking = false; }); progTicking = true; }
+  }, { passive:true });
+  updateProgress();
+
+  const exhibits = document.querySelectorAll('.exhibit');
+  const fades = document.querySelectorAll('.field-note, #footer');
+  function observe(list, cls, opts){
+    if (reduceMotion || !('IntersectionObserver' in window)){ list.forEach(el => el.classList.add(cls)); return; }
+    const io = new IntersectionObserver((items) => {
+      items.forEach(item => { if (item.isIntersecting){ item.target.classList.add(cls); io.unobserve(item.target); } });
+    }, opts);
+    list.forEach(el => io.observe(el));
+  }
+  observe(exhibits, 'in-view', { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  observe(fades, 'is-visible', { threshold: 0.3 });
+
+  const navLinks = document.querySelectorAll('.quicknav-links a[data-nav]');
+  if ('IntersectionObserver' in window) {
+    const navIO = new IntersectionObserver((items) => {
+      items.forEach(item => {
+        const link = document.querySelector('.quicknav-links a[href="#' + item.target.id + '"]');
+        if (item.isIntersecting) { navLinks.forEach(l => l.classList.remove('active')); if (link) link.classList.add('active'); }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+    exhibits.forEach(s => navIO.observe(s));
+  }
+</script>
+
+</body>
+</html>
