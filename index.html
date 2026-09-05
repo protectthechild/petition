@@ -69,6 +69,8 @@
   .quicknav-links a.nav-sign{color:var(--paper); background:var(--stamp); border-color:var(--stamp);
     font-weight:600; margin-left:6px;}
   .quicknav-links a.nav-sign:hover, .quicknav-links a.nav-sign:focus-visible{background:#a12626; border-color:#a12626; transform:translateY(-1px);}
+  .quicknav-links a.nav-learn{color:#cfc6a9; background:#2b2818; border-color:var(--rule-dark); font-weight:600;}
+  .quicknav-links a.nav-learn:hover, .quicknav-links a.nav-learn:focus-visible{color:var(--paper); background:#363217; border-color:#4a4530; transform:translateY(-1px);}
 
   @keyframes fadeUp{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
   @keyframes stampSlam{
@@ -107,6 +109,15 @@
   .hero-stat-num{font-family:'Fraunces', serif; font-size:2rem; font-weight:600; color:var(--paper); font-variant-numeric:tabular-nums;}
   .hero-stat-label{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.06em;
     color:var(--muted); margin-top:2px; line-height:1.35;}
+  .hero-video{margin-top:46px; opacity:0; animation:fadeUp .8s ease forwards; animation-delay:.95s;}
+  .hero-video-head{display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.1em;
+    color:var(--muted); text-transform:uppercase; margin-bottom:10px;}
+  .hero-video-head .rec{color:var(--stamp); font-weight:600;}
+  .video-frame{position:relative; aspect-ratio:16/9; background:#000;
+    border:1px solid var(--rule-dark); border-radius:2px; overflow:hidden;
+    box-shadow:0 24px 50px -20px rgba(0,0,0,0.6);}
+  .video-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
   .stampmark{position:absolute; top:clamp(30px,7vw,58px); right:clamp(10px,4vw,30px);
     font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.78rem; letter-spacing:0.14em;
     color:var(--stamp); border:2.5px solid var(--stamp); padding:9px 14px; border-radius:3px;
@@ -188,6 +199,16 @@
   footer p{font-size:0.86rem; line-height:1.7; color:var(--muted); max-width:66ch;}
   .foot-mono{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
     color:#5f5a44; margin-top:18px; text-transform:uppercase;}
+  .foot-legal{margin-top:28px; padding-top:20px; border-top:1px dashed var(--rule-dark);
+    opacity:0; transform:translateY(14px);
+    transition:opacity .7s ease .25s, transform .7s ease .25s;}
+  footer.is-visible .foot-legal{opacity:1; transform:translateY(0);}
+  .foot-speech{font-size:0.8rem; line-height:1.7; color:#87805f; margin:0; max-width:70ch;}
+  .foot-speech a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--rule-dark); white-space:nowrap;
+    transition:color .15s ease, text-decoration-color .15s ease;}
+  .foot-speech a:hover, .foot-speech a:focus-visible{color:var(--paper);
+    text-decoration-color:var(--stamp); outline:none;}
   footer a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
     text-decoration-color:var(--rule-dark);}
   footer a:hover{color:var(--paper); text-decoration-color:var(--stamp);}
@@ -221,6 +242,7 @@
       <a href="#principle" data-nav>The Principle</a>
       <a href="#demand" data-nav>The Demand</a>
       <a href="#sign" class="nav-sign">Sign Now</a>
+      <a href="learn-more.html" class="nav-learn">Learn More</a>
     </div>
   </div>
 </nav>
@@ -252,6 +274,20 @@
     <div class="hero-stat">
       <div class="hero-stat-num" data-count="1">0</div>
       <div class="hero-stat-label">Demand:<br>report it. every time.</div>
+    </div>
+  </div>
+  <div class="hero-video">
+    <div class="hero-video-head">
+      <span class="rec">● Watch</span>
+      <span>Video brief · before the record</span>
+    </div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/wYwyIsAP2pY"
+        title="Video brief — Protect the Child"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
     </div>
   </div>
 </header>
@@ -451,6 +487,14 @@
     The factual record above draws on the Associated Press investigation, federal court records,
     and the Church's own published history. Share this page and its text freely.</p>
   <p class="foot-mono">© 2026 RebuttaLDS.org · Protect the Child</p>
+
+  <div class="foot-legal">
+    <p class="foot-speech">Criticism of religious institutions, their history, and their doctrines
+      is speech protected by the First Amendment to the United States Constitution, which prohibits
+      laws abridging the freedom of speech or of the press.
+      <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank"
+         rel="noopener">Read the First Amendment at constitution.congress.gov&nbsp;→</a></p>
+  </div>
 </footer>
 
 <script>
