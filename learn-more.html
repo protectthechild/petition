@@ -140,7 +140,7 @@
   .panel{background:var(--paper); color:var(--ink); border-radius:2px;
     padding:clamp(24px,4vw,44px) clamp(20px,4.5vw,44px) clamp(28px,4vw,40px);
     box-shadow:0 24px 50px -20px rgba(0,0,0,0.55), 0 2px 0 var(--paper-line) inset;
-    position:relative; overflow:hidden; opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);}
+    position:relative; overflow:visible; opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);}
   .exhibit.in-view .panel{animation:panelRise .7s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.12s;}
   .panel::after{content:""; position:absolute; left:0; right:0; top:0; height:4px;
     background:repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 11px); opacity:0.12;}
@@ -218,13 +218,28 @@
   footer a:hover{color:var(--paper); text-decoration-color:var(--stamp);}
 
   /* ---------- In-section CTA (end of each exhibit) ---------- */
-  .exhibit-cta{display:flex; justify-content:flex-end; align-items:center; gap:18px; flex-wrap:wrap;
+  .exhibit-cta{display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:nowrap;
     margin-top:26px; padding-top:20px; border-top:1px dashed var(--paper-line);}
+  .exhibit-cta-right{display:flex; align-items:center; gap:16px; margin-left:auto; min-width:0;
+    /* bleed: cancel the panel's right padding, then push ~10% of the button past the paper edge */
+    margin-right:calc(-1 * clamp(20px,4.5vw,44px) - 22px);}
+  .exhibit-brief-link{display:inline-flex; align-items:center; gap:9px; padding:10px 16px 10px 13px;
+    border:1.5px solid var(--ink); border-radius:3px; color:var(--ink); text-decoration:none;
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem; font-weight:600; letter-spacing:0.1em;
+    text-transform:uppercase; white-space:nowrap;
+    transition:background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;}
+  .exhibit-brief-link svg{width:16px; height:16px; color:var(--stamp); flex-shrink:0;}
+  .exhibit-brief-link .arr{transition:transform .2s ease;}
+  .exhibit-brief-link:hover, .exhibit-brief-link:focus-visible{background:var(--paper-dim);
+    border-color:var(--stamp); color:var(--stamp); transform:translateY(-1px); outline:none;}
+  .exhibit-brief-link:hover .arr{transform:translateX(4px);}
+  .exhibit-brief-link:focus-visible{box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--stamp);}
   .exhibit-cta-note{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.12em;
-    text-transform:uppercase; color:var(--ink-soft); text-align:right;}
+    text-transform:uppercase; color:var(--ink-soft); text-align:right; max-width:26ch; line-height:1.5;}
   .exhibit-cta-btn{display:inline-flex; align-items:center; gap:10px; padding:12px 20px 12px 14px;
     background:var(--stamp); color:var(--paper); text-decoration:none; border-radius:3px;
-    font-family:'Fraunces', serif; font-weight:700; font-size:1.08rem;
+    font-family:'Fraunces', serif; font-weight:700; font-size:1.08rem; white-space:nowrap;
+    border:2px solid #c0453f; position:relative; z-index:2;
     box-shadow:0 10px 22px -10px rgba(138,32,32,0.8);
     transition:background .15s ease, transform .15s ease, box-shadow .15s ease;}
   .exhibit-cta-btn:hover, .exhibit-cta-btn:focus-visible{background:#a12626; transform:translateY(-2px);
@@ -236,8 +251,10 @@
   .exhibit-cta-btn .arr{transition:transform .2s ease;}
   .exhibit-cta-btn:hover .arr{transform:translateX(4px);}
   @media (max-width:640px){
-    .exhibit-cta{justify-content:stretch;}
-    .exhibit-cta-note{text-align:left; width:100%;}
+    .exhibit-cta{justify-content:stretch; flex-wrap:wrap;}
+    .exhibit-cta-right{flex-direction:column; align-items:stretch; width:100%; margin:0; gap:12px;}
+    .exhibit-cta-note{text-align:left; width:100%; max-width:none;}
+    .exhibit-brief-link{width:100%; justify-content:center;}
     .exhibit-cta-btn{width:100%; justify-content:center;}
   }
 
@@ -400,8 +417,11 @@
           system designed to shield the institution first and the child second.</strong></p>
       </div>
       <div class="exhibit-cta">
-        <span class="exhibit-cta-note">The record is the Church's own.</span>
-        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        <a href="evidence-briefs.html#theme-1" class="exhibit-brief-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>Read the evidence brief <span class="arr" aria-hidden="true">→</span></a>
+        <div class="exhibit-cta-right">
+          <span class="exhibit-cta-note">The record is the Church's own.</span>
+          <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -434,8 +454,11 @@
           poorest members for ten percent.</strong></p>
       </div>
       <div class="exhibit-cta">
-        <span class="exhibit-cta-note">Accountability starts with children.</span>
-        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        <a href="evidence-briefs.html#theme-2" class="exhibit-brief-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>Read the evidence brief <span class="arr" aria-hidden="true">→</span></a>
+        <div class="exhibit-cta-right">
+          <span class="exhibit-cta-note">Accountability starts with children.</span>
+          <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -466,8 +489,11 @@
           God to women is not complementary. It is control, formalized.</strong></p>
       </div>
       <div class="exhibit-cta">
-        <span class="exhibit-cta-note">Every voice counts. Add yours.</span>
-        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        <a href="evidence-briefs.html#theme-3" class="exhibit-brief-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>Read the evidence brief <span class="arr" aria-hidden="true">→</span></a>
+        <div class="exhibit-cta-right">
+          <span class="exhibit-cta-note">Every voice counts. Add yours.</span>
+          <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -502,8 +528,11 @@
           friendliest hard sell in America.</strong></p>
       </div>
       <div class="exhibit-cta">
-        <span class="exhibit-cta-note">Decide on the evidence.</span>
-        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        <a href="evidence-briefs.html#theme-4" class="exhibit-brief-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>Read the evidence brief <span class="arr" aria-hidden="true">→</span></a>
+        <div class="exhibit-cta-right">
+          <span class="exhibit-cta-note">Decide on the evidence.</span>
+          <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -534,8 +563,11 @@
           basic human equality, decades behind the society it claimed to be sent to save.</strong></p>
       </div>
       <div class="exhibit-cta">
-        <span class="exhibit-cta-note">Equality came late. So did this.</span>
-        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        <a href="evidence-briefs.html#theme-5" class="exhibit-brief-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>Read the evidence brief <span class="arr" aria-hidden="true">→</span></a>
+        <div class="exhibit-cta-right">
+          <span class="exhibit-cta-note">Equality came late. So did this.</span>
+          <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -567,8 +599,11 @@
           walls. That record is the reason this petition exists.</strong></p>
       </div>
       <div class="exhibit-cta">
-        <span class="exhibit-cta-note">Judge it by the most vulnerable.</span>
-        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        <a href="evidence-briefs.html#theme-6" class="exhibit-brief-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>Read the evidence brief <span class="arr" aria-hidden="true">→</span></a>
+        <div class="exhibit-cta-right">
+          <span class="exhibit-cta-note">Judge it by the most vulnerable.</span>
+          <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
