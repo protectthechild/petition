@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Thank You for Signing — Protect the Child</title>
+<meta name="description" content="Thank you for signing the Protect the Child petition. Now share it.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #131209;
+    --paper: #ece4cd;
+    --paper-dim: #e1d7bb;
+    --paper-line: #cabb92;
+    --ink: #221f16;
+    --ink-soft: #55503e;
+    --stamp: #8a2020;
+    --green: #2f4a35;
+    --muted: #a89f80;
+    --rule-dark: #3a3626;
+    --max: 860px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, #221f14 0%, transparent 60%),
+      radial-gradient(ellipse 900px 600px at 100% 20%, #1c1a12 0%, transparent 55%);
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none; z-index:999; opacity:0.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;}
+  ::selection{background:var(--stamp); color:var(--paper);}
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; letter-spacing:-0.01em;}
+
+  .progress-rail{position:fixed; top:0; left:0; right:0; height:3px; z-index:100; background:var(--rule-dark);}
+  .progress-fill{height:100%; width:100%; transform-origin:left center; transform:scaleX(0);
+    background:linear-gradient(90deg, var(--stamp), #c0453f);
+    box-shadow:0 0 10px 0 rgba(138,32,32,0.7); will-change:transform;}
+
+  .quicknav{position:sticky; top:3px; z-index:50; background:rgba(19,18,9,0.86);
+    backdrop-filter:blur(6px); border-bottom:1px solid var(--rule-dark); padding:0 clamp(20px,5vw,48px);}
+  .quicknav-inner{max-width:var(--max); margin:0 auto; width:100%; display:flex;
+    align-items:center; justify-content:space-between; padding:12px 0;}
+  .quicknav-brand{font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;}
+  .quicknav-links{display:flex; gap:4px; font-family:'IBM Plex Mono', monospace; font-size:0.74rem;}
+  .quicknav-links a{text-decoration:none; color:var(--muted); padding:6px 11px;
+    border:1px solid transparent; border-radius:2px; display:inline-block;
+    transition:color .15s ease, border-color .15s ease, background .15s ease, transform .15s ease;}
+  .quicknav-links a:hover, .quicknav-links a:focus-visible{color:var(--paper); border-color:var(--rule-dark); outline:none; transform:translateY(-1px);}
+  .quicknav-links a.active{color:var(--stamp); background:#8a20201a; border-color:#8a202044;}
+  .quicknav-links a.nav-sign{color:var(--paper); background:var(--stamp); border-color:var(--stamp);
+    font-weight:600; margin-left:6px;}
+  .quicknav-links a.nav-sign:hover, .quicknav-links a.nav-sign:focus-visible{background:#a12626; border-color:#a12626; transform:translateY(-1px);}
+  .quicknav-links a.nav-learn{color:#cfc6a9; background:#2b2818; border-color:var(--rule-dark); font-weight:600;}
+  .quicknav-links a.nav-learn:hover, .quicknav-links a.nav-learn:focus-visible{color:var(--paper); background:#363217; border-color:#4a4530; transform:translateY(-1px);}
+
+  @keyframes fadeUp{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes stampSlam{
+    0%{opacity:0; transform:scale(2.6) rotate(-24deg);}
+    50%{opacity:1; transform:scale(0.82) rotate(10deg);}
+    72%{transform:scale(1.08) rotate(3deg);}
+    100%{opacity:0.9; transform:scale(1) rotate(6deg);}
+  }
+  @keyframes docStampSlam{
+    0%{opacity:0; transform:scale(2.4) rotate(14deg);}
+    50%{opacity:1; transform:scale(0.85) rotate(-9deg);}
+    72%{transform:scale(1.07) rotate(-3deg);}
+    100%{opacity:1; transform:scale(1) rotate(-5deg);}
+  }
+  @keyframes tabDrop{from{opacity:0; transform:translateY(-160%);} to{opacity:1; transform:translateY(0);}}
+  @keyframes panelRise{from{opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);} to{opacity:1; transform:translateY(0) scale(1) rotate(0deg);}}
+
+  .hero{max-width:var(--max); margin:0 auto; padding:clamp(56px,9vw,104px) clamp(20px,5vw,48px) clamp(40px,6vw,64px); position:relative; overflow:hidden;}
+  .hero-filehead{display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--muted); letter-spacing:0.08em;
+    border-bottom:1px dashed var(--rule-dark); padding-bottom:14px; margin-bottom:34px; flex-wrap:wrap; gap:8px;
+    opacity:0; animation:fadeUp .6s ease forwards;}
+  .hero-eyebrow{display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.74rem;
+    letter-spacing:0.16em; color:var(--stamp); text-transform:uppercase; margin-bottom:18px;
+    opacity:0; animation:fadeUp .6s ease forwards; animation-delay:.14s;}
+  .hero h1{font-size:clamp(2.4rem, 6.2vw, 4.2rem); font-weight:600; line-height:1.04; color:var(--paper);
+    max-width:15ch; opacity:0; animation:fadeUp .85s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.26s;}
+  .hero-sub{margin-top:22px; max-width:58ch; font-size:1.1rem; line-height:1.6; color:#cfc6a9;
+    font-weight:500; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.52s;}
+  .hero-cw{margin-top:16px; font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+    color:var(--muted); text-transform:uppercase; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.62s;}
+  .hero-stats{margin-top:44px; display:grid; grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--rule-dark); opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.72s;}
+  .hero-stat{padding:16px 14px 0 0; border-right:1px solid var(--rule-dark);}
+  .hero-stat:last-child{border-right:none;}
+  .hero-stat-num{font-family:'Fraunces', serif; font-size:2rem; font-weight:600; color:var(--paper); font-variant-numeric:tabular-nums;}
+  .hero-stat-label{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.06em;
+    color:var(--muted); margin-top:2px; line-height:1.35;}
+  .stampmark{position:absolute; top:clamp(30px,7vw,58px); right:clamp(10px,4vw,30px);
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.78rem; letter-spacing:0.14em;
+    color:var(--stamp); border:2.5px solid var(--stamp); padding:9px 14px; border-radius:3px;
+    opacity:0; mix-blend-mode:screen; user-select:none;
+    animation:stampSlam .8s cubic-bezier(.2,.9,.3,1.2) forwards; animation-delay:1s;}
+
+  main{max-width:var(--max); margin:0 auto; padding:0 clamp(20px,5vw,48px) 40px;}
+  .exhibit{position:relative; margin-top:64px; scroll-margin-top:80px;}
+  .folder-tab{position:relative; display:inline-flex; align-items:center; gap:8px;
+    background:var(--paper-dim); color:var(--ink); font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.1em; font-weight:600; padding:8px 18px 10px;
+    clip-path:polygon(6% 0, 94% 0, 100% 100%, 0 100%); margin-left:28px; margin-bottom:-1px;
+    opacity:0; transform:translateY(-160%);}
+  .folder-tab .tab-dot{width:6px; height:6px; border-radius:50%; background:var(--stamp); display:inline-block;}
+  .exhibit.in-view .folder-tab{animation:tabDrop .55s cubic-bezier(.2,.8,.3,1.1) forwards;}
+  .panel{background:var(--paper); color:var(--ink); border-radius:2px;
+    padding:clamp(24px,4vw,44px) clamp(20px,4.5vw,44px) clamp(28px,4vw,40px);
+    box-shadow:0 24px 50px -20px rgba(0,0,0,0.55), 0 2px 0 var(--paper-line) inset;
+    position:relative; overflow:hidden; opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);}
+  .exhibit.in-view .panel{animation:panelRise .7s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.12s;}
+  .panel::after{content:""; position:absolute; left:0; right:0; top:0; height:4px;
+    background:repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 11px); opacity:0.12;}
+  .exhibit-head{display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    border-bottom:2px solid var(--ink); padding-bottom:18px; margin-bottom:8px;}
+  .exhibit-kicker{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.14em;
+    color:var(--ink-soft); text-transform:uppercase;}
+  .exhibit-head-text h2{margin-top:6px; font-size:clamp(1.5rem, 3.2vw, 2.1rem); font-weight:600; line-height:1.08;}
+  .doc-stamp{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:0.85rem; letter-spacing:0.12em;
+    color:var(--stamp); border:3px solid var(--stamp); padding:8px 12px; border-radius:4px;
+    white-space:nowrap; flex-shrink:0; margin-top:4px; opacity:0; transform:scale(2.4) rotate(14deg);}
+  .exhibit.in-view .doc-stamp{animation:docStampSlam .6s cubic-bezier(.2,.9,.3,1.2) forwards; animation-delay:.55s;}
+
+  .prose{margin-top:20px;}
+  .prose p{font-size:0.99rem; line-height:1.72; color:var(--ink); margin:0 0 16px; max-width:66ch;}
+  .prose p.soft{color:var(--ink-soft);}
+  .prose p strong{color:var(--stamp);}
+  .pull{border-left:3px solid var(--stamp); background:var(--paper-dim);
+    padding:16px 20px; margin:22px 0; max-width:60ch;}
+  .pull p{font-family:'Fraunces', serif; font-size:1.15rem; line-height:1.5; font-weight:600;
+    color:var(--ink); margin:0;}
+  .pull .answer{display:block; margin-top:10px; font-family:'IBM Plex Mono', monospace;
+    font-size:1rem; letter-spacing:0.14em; color:var(--stamp); font-weight:700;}
+
+  .entries{list-style:none; margin:26px 0 0; padding:0;}
+  .entry{display:grid; grid-template-columns:64px 1fr; gap:18px; padding:22px 0;
+    border-bottom:1px solid var(--paper-line); opacity:0; transform:translateY(18px);
+    transition:opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1); position:relative;}
+  .entry:nth-child(1){transition-delay:.02s;} .entry:nth-child(2){transition-delay:.09s;}
+  .entry.is-visible{opacity:1; transform:translateY(0);}
+  .entry:last-child{border-bottom:none; padding-bottom:6px;}
+  .entry::before{content:""; position:absolute; left:-1px; top:22px; bottom:22px; width:2px;
+    background:var(--stamp); transform:scaleY(0); transform-origin:top;
+    transition:transform .5s cubic-bezier(.16,1,.3,1); transition-delay:inherit;}
+  .entry.is-visible::before{transform:scaleY(1);}
+  .entry-num{font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.85rem;
+    color:var(--stamp); letter-spacing:0.02em; padding-top:2px;}
+  .entry-body h3{font-size:1.12rem; font-weight:600; line-height:1.3; color:var(--ink);}
+  .entry-body p{margin:8px 0 0; font-size:0.98rem; line-height:1.62; color:var(--ink-soft); max-width:64ch;}
+
+  .field-note{max-width:var(--max); margin:52px auto 0; padding:0 clamp(20px,5vw,48px);
+    display:flex; gap:16px; align-items:flex-start; color:var(--muted); font-size:0.92rem; line-height:1.6;
+    opacity:0; transform:translateX(-16px); transition:opacity .6s ease, transform .6s ease;}
+  .field-note.is-visible{opacity:1; transform:translateX(0);}
+  .field-note .mark{font-family:'IBM Plex Mono', monospace; color:var(--stamp); font-size:0.8rem; margin-top:2px;}
+
+  .sign-grid{display:grid; grid-template-columns:1fr 200px; gap:28px; margin-top:22px; align-items:start;}
+  .form-holder{min-height:420px;}
+  .qr-card{background:var(--paper-dim); border:1px solid var(--ink); border-radius:3px;
+    padding:14px; text-align:center;}
+  .qr-card img{width:100%; height:auto; display:block; image-rendering:pixelated;}
+  .qr-card .qr-label{font-family:'IBM Plex Mono', monospace; font-size:0.62rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink); margin:10px 0 2px; font-weight:600;}
+  .qr-card .qr-url{font-family:'IBM Plex Mono', monospace; font-size:0.6rem; color:var(--ink-soft); word-break:break-all;}
+
+  footer{max-width:var(--max); margin:88px auto 0; padding:32px clamp(20px,5vw,48px) 60px;
+    border-top:1px solid var(--rule-dark); opacity:0; transform:translateY(20px);
+    transition:opacity .7s ease, transform .7s ease;}
+  footer.is-visible{opacity:1; transform:translateY(0);}
+  footer p{font-size:0.86rem; line-height:1.7; color:var(--muted); max-width:66ch;}
+  .foot-mono{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+    color:#5f5a44; margin-top:18px; text-transform:uppercase;}
+  .foot-legal{margin-top:28px; padding-top:20px; border-top:1px dashed var(--rule-dark);
+    opacity:0; transform:translateY(14px);
+    transition:opacity .7s ease .25s, transform .7s ease .25s;}
+  footer.is-visible .foot-legal{opacity:1; transform:translateY(0);}
+  .foot-speech{font-size:0.8rem; line-height:1.7; color:#87805f; margin:0; max-width:70ch;}
+  .foot-speech a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--rule-dark); white-space:nowrap;
+    transition:color .15s ease, text-decoration-color .15s ease;}
+  .foot-speech a:hover, .foot-speech a:focus-visible{color:var(--paper);
+    text-decoration-color:var(--stamp); outline:none;}
+  footer a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--rule-dark);}
+  footer a:hover{color:var(--paper); text-decoration-color:var(--stamp);}
+
+  /* ---------- In-section CTA (end of each exhibit) ---------- */
+  .exhibit-cta{display:flex; justify-content:flex-end; align-items:center; gap:18px; flex-wrap:wrap;
+    margin-top:26px; padding-top:20px; border-top:1px dashed var(--paper-line);}
+  .exhibit-cta-note{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--ink-soft); text-align:right;}
+  .exhibit-cta-btn{display:inline-flex; align-items:center; gap:10px; padding:12px 20px 12px 14px;
+    background:var(--stamp); color:var(--paper); text-decoration:none; border-radius:3px;
+    font-family:'Fraunces', serif; font-weight:700; font-size:1.08rem;
+    box-shadow:0 10px 22px -10px rgba(138,32,32,0.8);
+    transition:background .15s ease, transform .15s ease, box-shadow .15s ease;}
+  .exhibit-cta-btn:hover, .exhibit-cta-btn:focus-visible{background:#a12626; transform:translateY(-2px);
+    box-shadow:0 14px 26px -10px rgba(138,32,32,0.9); outline:none;}
+  .exhibit-cta-btn:focus-visible{box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--stamp);}
+  .exhibit-cta-btn .ico{width:28px; height:28px; border-radius:50%; background:var(--paper); color:var(--stamp);
+    display:grid; place-items:center;}
+  .exhibit-cta-btn .ico svg{width:15px; height:15px;}
+  .exhibit-cta-btn .arr{transition:transform .2s ease;}
+  .exhibit-cta-btn:hover .arr{transform:translateX(4px);}
+  @media (max-width:640px){
+    .exhibit-cta{justify-content:stretch;}
+    .exhibit-cta-note{text-align:left; width:100%;}
+    .exhibit-cta-btn{width:100%; justify-content:center;}
+  }
+
+  /* ---------- Floating "Sign the Petition" CTA (bottom-left) ---------- */
+  .float-cta{
+    position:fixed; z-index:90;
+    left:max(20px, env(safe-area-inset-left));
+    bottom:max(20px, env(safe-area-inset-bottom));
+    display:inline-flex; align-items:center; gap:14px;
+    padding:16px 26px 16px 18px;
+    background:var(--stamp); color:var(--paper);
+    border:2px solid #c0453f; border-radius:4px;
+    font-family:'IBM Plex Mono', monospace; text-decoration:none;
+    box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0.6);
+    opacity:0; visibility:hidden; transform:translateY(24px) scale(0.92);
+    transition:opacity .4s ease, transform .45s cubic-bezier(.2,.9,.3,1.2), visibility 0s linear .45s,
+      background .15s ease;
+  }
+  .float-cta.show{
+    opacity:1; visibility:visible; transform:translateY(0) scale(1);
+    transition:opacity .4s ease, transform .45s cubic-bezier(.2,.9,.3,1.2), visibility 0s,
+      background .15s ease;
+    animation:ctaPulse 2.4s ease-out infinite, ctaNudge 6s ease-in-out 1.5s infinite;
+  }
+  .float-cta:hover, .float-cta:focus-visible{
+    background:#a12626; outline:none; animation-play-state:paused;
+    transform:translateY(-3px) scale(1.03);
+  }
+  .float-cta:focus-visible{box-shadow:0 0 0 3px var(--bg), 0 0 0 6px var(--paper);}
+  .float-cta-icon{
+    width:42px; height:42px; flex-shrink:0; border-radius:50%;
+    display:grid; place-items:center; background:var(--paper); color:var(--stamp);
+  }
+  .float-cta-icon svg{width:22px; height:22px;}
+  .float-cta-text{display:flex; flex-direction:column; line-height:1.15;}
+  .float-cta-kicker{font-size:0.66rem; letter-spacing:0.16em; text-transform:uppercase; opacity:0.85;}
+  .float-cta-label{font-family:'Fraunces', serif; font-size:1.35rem; font-weight:700; letter-spacing:-0.005em;}
+  .float-cta-arrow{font-size:1.3rem; margin-left:2px; display:inline-block; animation:ctaArrow 1.6s ease-in-out infinite;}
+
+  /* Expanding ring pulse */
+  @keyframes ctaPulse{
+    0%  {box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0.65);}
+    70% {box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 18px rgba(192,69,63,0);}
+    100%{box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0);}
+  }
+  /* Periodic attention "stamp" wiggle */
+  @keyframes ctaNudge{
+    0%, 82%, 100%{transform:translateY(0) rotate(0) scale(1);}
+    85%{transform:translateY(-4px) rotate(-3deg) scale(1.06);}
+    88%{transform:translateY(0) rotate(2.5deg) scale(1.04);}
+    91%{transform:rotate(-1.5deg) scale(1.02);}
+    94%{transform:rotate(0) scale(1);}
+  }
+  @keyframes ctaArrow{0%,100%{transform:translateX(0);} 50%{transform:translateX(5px);}}
+
+  @media (prefers-reduced-motion: reduce){
+    .float-cta.show{animation:none;}
+    .float-cta-arrow{animation:none;}
+  }
+
+
+  /* Mid-width screens: compact floating button so it sits in the margin, not over the text */
+  @media (min-width: 641px) and (max-width: 1400px){
+    .float-cta{padding:10px 18px 10px 10px; gap:10px;}
+    .float-cta-kicker{display:none;}
+    .float-cta-icon{width:34px; height:34px;}
+    .float-cta-icon svg{width:18px; height:18px;}
+    .float-cta-label{font-size:1.05rem;}
+    .float-cta-label .full{display:none;}
+  }
+  @media (max-width: 640px){
+    .float-cta{left:max(14px, env(safe-area-inset-left)); bottom:max(14px, env(safe-area-inset-bottom));
+      padding:12px 20px 12px 12px; gap:11px;}
+    .float-cta-icon{width:36px; height:36px;}
+    .float-cta-icon svg{width:19px; height:19px;}
+    .float-cta-label{font-size:1.12rem;}
+    footer{padding-bottom:110px;}
+  }
+
+  @media (max-width: 640px){
+    .hero-stats{grid-template-columns:repeat(2,1fr);}
+    .hero-stat:nth-child(2){border-right:none;}
+    .hero-stat{border-bottom:1px solid var(--rule-dark); padding-bottom:14px;}
+    .quicknav-inner{flex-wrap:wrap; justify-content:center; gap:4px; padding:8px 0;}
+    .quicknav-brand{display:none;}
+    .quicknav-links{flex-wrap:wrap; justify-content:center;}
+    .quicknav-links a{padding:6px 8px; font-size:0.68rem;}
+    .exhibit-head{flex-direction:column;}
+    .doc-stamp{align-self:flex-start;}
+    .stampmark{display:none;}
+    .sign-grid{grid-template-columns:1fr;}
+    .qr-card{max-width:220px; margin:0 auto;}
+  }
+
+  /* ---------- Thank-you page ---------- */
+  .ty-steps{margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--rule-dark);
+    opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.72s;}
+  .ty-step{padding:16px 14px 0 0; border-right:1px solid var(--rule-dark); font-family:'IBM Plex Mono',monospace; text-decoration:none;}
+  .ty-step:last-child{border-right:none;}
+  .ty-step b{display:block; font-family:'Fraunces',serif; font-size:1.3rem; color:var(--paper); font-weight:600;}
+  .ty-step span{font-size:0.68rem; letter-spacing:0.08em; color:var(--muted); text-transform:uppercase;}
+  .ty-step.done b{color:#c0453f;}
+  a.ty-step:hover b{text-decoration:underline; text-decoration-color:var(--stamp); text-underline-offset:4px;}
+  .share-msg{background:var(--paper-dim); border:1px solid var(--paper-line); border-left:3px solid var(--stamp);
+    padding:16px 18px; margin:18px 0; font-size:0.98rem; line-height:1.6; color:var(--ink); max-width:62ch;}
+  .share-msg .url{font-family:'IBM Plex Mono',monospace; font-size:0.86rem; word-break:break-all; color:var(--stamp);}
+  .share-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:8px;}
+  .share-btn{display:flex; align-items:center; justify-content:center; gap:8px; padding:13px 10px; border-radius:3px;
+    border:1.5px solid var(--ink); color:var(--ink); background:transparent; text-decoration:none;
+    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:0.8rem; letter-spacing:0.06em; cursor:pointer;
+    transition:background .15s ease, color .15s ease, transform .15s ease;}
+  .share-btn:hover, .share-btn:focus-visible{background:var(--ink); color:var(--paper); outline:none; transform:translateY(-1px);}
+  .share-btn:focus-visible{box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--stamp);}
+  .share-btn svg{width:16px; height:16px; flex-shrink:0;}
+  .share-btn.primary{background:var(--stamp); border-color:var(--stamp); color:var(--paper); grid-column:1/-1;
+    font-family:'Fraunces',serif; font-size:1.15rem; letter-spacing:0; padding:16px; box-shadow:0 10px 22px -10px rgba(138,32,32,0.8);}
+  .share-btn.primary svg{width:19px; height:19px;}
+  .share-btn.primary:hover, .share-btn.primary:focus-visible{background:#a12626; color:var(--paper);}
+  .share-btn.is-copied{background:var(--green); border-color:var(--green); color:var(--paper);}
+  .touch-only{display:none !important;}
+  .is-touch .touch-only{display:flex !important;}
+  html:not(.is-touch) #shareCopy{grid-column:span 2;}
+  .share-note{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.06em; color:var(--ink-soft); margin:14px 0 0;}
+  .poster-row{display:flex; gap:18px; align-items:center; flex-wrap:wrap; margin-top:6px;}
+  .poster-row .share-btn{padding:13px 18px;}
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px;}
+  .card{border:1px solid var(--ink); border-radius:3px; padding:18px 20px; text-decoration:none; color:var(--ink); display:block;
+    transition:background .15s ease, transform .15s ease;}
+  .card:hover, .card:focus-visible{background:var(--paper-dim); transform:translateY(-2px); outline:none;}
+  .card:focus-visible{box-shadow:0 0 0 3px var(--stamp);}
+  .card .k{font-family:'IBM Plex Mono',monospace; font-size:0.66rem; letter-spacing:0.14em; color:var(--stamp); text-transform:uppercase;}
+  .card h3{margin-top:6px; font-size:1.18rem;}
+  .card p{margin:6px 0 0; font-size:0.92rem; line-height:1.55; color:var(--ink-soft);}
+  .help{max-width:calc(var(--max) - 2 * clamp(20px,5vw,48px)); margin:56px auto 0; border:1px solid var(--rule-dark);
+    border-left:3px solid #c0453f; border-radius:3px; padding:22px 24px; background:#1b1a10; color:var(--paper);}
+  .help .k{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.14em; color:#c0453f; text-transform:uppercase;}
+  .help p{margin:8px 0 0; font-size:0.95rem; line-height:1.6; color:#cfc6a9;}
+  .help ul{list-style:none; padding:0; margin:14px 0 0; display:grid; gap:10px;}
+  .help li{font-size:0.95rem; line-height:1.5; color:#cfc6a9;}
+  .help li b{color:var(--paper); font-weight:600;}
+  .help a{color:var(--paper); text-decoration:underline; text-underline-offset:3px; text-decoration-color:#c0453f;}
+  .toast{position:fixed; left:50%; bottom:28px; z-index:120; transform:translate(-50%, 20px); opacity:0;
+    background:var(--paper); color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:0.8rem; font-weight:600;
+    letter-spacing:0.04em; padding:12px 18px; border-radius:3px; box-shadow:0 14px 30px -10px rgba(0,0,0,.7);
+    transition:opacity .25s ease, transform .25s ease; pointer-events:none; max-width:calc(100vw - 32px); text-align:center;}
+  .toast.show{opacity:1; transform:translate(-50%, 0);}
+  button.float-cta{cursor:pointer; text-align:left;}
+  @media (max-width:640px){
+    .share-grid{grid-template-columns:1fr 1fr;}
+    .two-col{grid-template-columns:1fr;}
+    .ty-step b{font-size:1.08rem;}
+    .help{margin-left:20px; margin-right:20px;}
+    .toast{bottom:92px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<nav class="quicknav" aria-label="Page navigation">
+  <div class="quicknav-inner">
+    <span class="quicknav-brand">Protect the Child · Thank You</span>
+    <div class="quicknav-links">
+      <a href="index.html">← Petition</a>
+      <a href="learn-more.html">Learn More</a>
+      <a href="#share" class="nav-sign">Share</a>
+      <a href="https://rebuttalds.org" target="_blank" rel="noopener" class="nav-learn">RebuttaLDS.org →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="stampmark">SIGNED<br>&amp; FILED</div>
+  <div class="hero-filehead">
+    <span>Signature received</span>
+    <span>Adams v. silence · Arizona</span>
+  </div>
+  <span class="hero-eyebrow">Thank you</span>
+  <h1>Your name is<br>on the record.</h1>
+  <p class="hero-sub">Two bishops stayed silent. You didn't. A petition carries weight in numbers,
+    so the single most useful thing you can do in the next minute is send it to three people.</p>
+  <div class="ty-steps">
+    <div class="ty-step done"><b>✓ Signed</b><span>Step 1 · done</span></div>
+    <a class="ty-step" href="#share"><b>→ Share</b><span>Step 2 · one minute</span></a>
+    <a class="ty-step" href="#deeper"><b>Go deeper</b><span>Step 3 · optional</span></a>
+  </div>
+</header>
+
+<main>
+
+  <!-- SHARE -->
+  <section class="exhibit" id="share">
+    <div class="folder-tab"><span class="tab-dot"></span> STEP 2</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">02 / Multiply your signature</span>
+          <h2>Send it to three people</h2>
+        </div>
+        <span class="doc-stamp">SHARE</span>
+      </div>
+      <div class="prose">
+        <p>Most petition signatures come from someone the signer knows personally. Here's a message
+          you can send as-is:</p>
+      </div>
+      <div class="share-msg" id="shareMsg"></div>
+      <div class="share-grid">
+        <button type="button" class="share-btn primary" id="shareNative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg> Share this petition →</button>
+        <a class="share-btn touch-only" id="shareSms" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Text message</a>
+        <a class="share-btn" id="shareEmail" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> Email</a>
+        <a class="share-btn" id="shareWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="share-btn" id="shareFacebook" href="#" target="_blank" rel="noopener">Facebook</a>
+        <a class="share-btn" id="shareX" href="#" target="_blank" rel="noopener">X / Twitter</a>
+        <button type="button" class="share-btn" id="shareCopy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> <span>Copy message</span></button>
+      </div>
+      <p class="share-note">Nothing is sent automatically. Each button opens the app with the message ready for you to review.</p>
+    </div>
+  </section>
+
+  <!-- POSTER -->
+  <section class="exhibit" id="poster">
+    <div class="folder-tab"><span class="tab-dot"></span> OFFLINE</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">03 / Put it on a wall</span>
+          <h2>Print the poster</h2>
+        </div>
+        <span class="doc-stamp">QR INCLUDED</span>
+      </div>
+      <div class="prose">
+        <p>A one-page poster with a QR code that opens the petition. Community boards, coffee shops,
+          campus bulletin boards — anywhere people pause long enough to read.</p>
+      </div>
+      <div class="poster-row">
+        <a class="share-btn" href="protect-the-child-poster.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Download the poster (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GO DEEPER -->
+  <section class="exhibit" id="deeper">
+    <div class="folder-tab"><span class="tab-dot"></span> STEP 3</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">04 / Go deeper</span>
+          <h2>Understand the pattern</h2>
+        </div>
+        <span class="doc-stamp">OPTIONAL</span>
+      </div>
+      <div class="two-col">
+        <a class="card" href="learn-more.html">
+          <span class="k">Learn More</span>
+          <h3>Six themes, one pattern →</h3>
+          <p>The documented record behind the petition, from the help line to the hundred-billion-dollar fund.</p>
+        </a>
+        <a class="card" href="https://rebuttalds.org" target="_blank" rel="noopener">
+          <span class="k">RebuttaLDS.org</span>
+          <h3>Tools to push back →</h3>
+          <p>The research dossier and the printable doorstep cheat sheet.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<aside class="help" aria-label="Support resources">
+  <span class="k">If this hits close to home</span>
+  <p>If a child is in immediate danger, call <b>911</b>. Confidential help is available any time:</p>
+  <ul>
+    <li><b>Childhelp National Child Abuse Hotline</b> · <a href="tel:18004224453">1-800-422-4453</a> · call or text</li>
+    <li><b>RAINN National Sexual Assault Hotline</b> · <a href="tel:18006564673">800-656-4673</a> (HOPE)</li>
+  </ul>
+</aside>
+
+<button type="button" class="float-cta" id="floatCta" aria-label="Share the petition">
+  <span class="float-cta-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg></span>
+  <span class="float-cta-text">
+    <span class="float-cta-kicker">Step 2 · one minute</span>
+    <span class="float-cta-label">Share<span class="full"> the Petition</span> <span class="float-cta-arrow" aria-hidden="true">→</span></span>
+  </span>
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<footer id="footer">
+  <p>Thank you for standing with children who cannot stand up for themselves.</p>
+  <p>Presented by <a href="https://rebuttalds.org" target="_blank" rel="noopener">RebuttaLDS.org</a>.
+    Share this page and its text freely.</p>
+  <p class="foot-mono">© 2026 RebuttaLDS.org · Protect the Child</p>
+  <div class="foot-legal">
+    <p class="foot-speech">Criticism of religious institutions, their history, and their doctrines
+      is speech protected by the First Amendment to the United States Constitution, which prohibits
+      laws abridging the freedom of speech or of the press.
+      <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank"
+         rel="noopener">Read the First Amendment at constitution.congress.gov&nbsp;→</a></p>
+  </div>
+</footer>
+
+<script>
+  // ===== Share content: edit these lines to change what people send =====
+  const SHARE_URL   = 'https://protectthechild.github.io/petition/index.html';
+  const SHARE_TEXT  = 'I just signed a petition asking the LDS Church to report every credible case of child abuse to police, no exceptions. Two bishops knew about the Adams case for years and said nothing. Read it and add your name:';
+  const SHARE_TITLE = 'Protect the Child. No Exceptions.';
+  const FULL_MESSAGE = SHARE_TEXT + ' ' + SHARE_URL;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (window.matchMedia('(pointer: coarse)').matches) document.documentElement.classList.add('is-touch');
+
+  // Show the message on the page
+  const msgEl = document.getElementById('shareMsg');
+  msgEl.textContent = SHARE_TEXT + ' ';
+  const urlSpan = document.createElement('span');
+  urlSpan.className = 'url';
+  urlSpan.textContent = SHARE_URL;
+  msgEl.appendChild(urlSpan);
+
+  // App links: each opens the app with the message prefilled; nothing is sent automatically
+  const enc = encodeURIComponent;
+  document.getElementById('shareSms').href      = 'sms:?&body=' + enc(FULL_MESSAGE);
+  document.getElementById('shareEmail').href    = 'mailto:?subject=' + enc('Please sign: ' + SHARE_TITLE) + '&body=' + enc(FULL_MESSAGE);
+  document.getElementById('shareWhatsApp').href = 'https://wa.me/?text=' + enc(FULL_MESSAGE);
+  document.getElementById('shareFacebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + enc(SHARE_URL);
+  document.getElementById('shareX').href        = 'https://twitter.com/intent/tweet?text=' + enc(SHARE_TEXT) + '&url=' + enc(SHARE_URL);
+
+  // Toast message
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(text){
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+  }
+
+  // Copy, with a fallback for older browsers
+  async function copyText(text){
+    try {
+      if (navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(text); return true; }
+    } catch (e) {}
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch (e) { return false; }
+  }
+
+  const copyBtn = document.getElementById('shareCopy');
+  copyBtn.addEventListener('click', async () => {
+    const ok = await copyText(FULL_MESSAGE);
+    if (ok){
+      const label = copyBtn.querySelector('span');
+      const orig = label.textContent;
+      copyBtn.classList.add('is-copied');
+      label.textContent = 'Copied ✓';
+      showToast('Message copied — paste it anywhere.');
+      setTimeout(() => { copyBtn.classList.remove('is-copied'); label.textContent = orig; }, 2200);
+    } else {
+      showToast('Couldn\'t copy automatically — select the message above and copy it.');
+    }
+  });
+
+  // Native share sheet (phones), with copy as the fallback (most desktops)
+  async function shareNow(){
+    if (navigator.share){
+      try { await navigator.share({ title: SHARE_TITLE, text: SHARE_TEXT, url: SHARE_URL }); }
+      catch (e) { /* the person closed the share sheet */ }
+      return;
+    }
+    const ok = await copyText(FULL_MESSAGE);
+    showToast(ok ? 'Message copied — paste it into any app.' : 'Select the message above and copy it.');
+  }
+  document.getElementById('shareNative').addEventListener('click', shareNow);
+
+  // Floating share button: show after a short scroll; hide while the share panel is on screen
+  const floatCta = document.getElementById('floatCta');
+  floatCta.addEventListener('click', shareNow);
+  let shareInView = false;
+  function updateFloatCta(){
+    const scrolled = (window.scrollY || document.documentElement.scrollTop) > 320;
+    floatCta.classList.toggle('show', scrolled && !shareInView);
+  }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver((items) => {
+      items.forEach(item => { shareInView = item.isIntersecting; });
+      updateFloatCta();
+    }, { threshold: 0, rootMargin: '-15% 0px -35% 0px' }).observe(document.getElementById('share'));
+  }
+  window.addEventListener('scroll', updateFloatCta, { passive: true });
+  updateFloatCta();
+
+  // Progress rail
+  const progressFill = document.getElementById('progressFill');
+  function updateProgress(){
+    const el = document.documentElement;
+    const max = el.scrollHeight - el.clientHeight;
+    progressFill.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, el.scrollTop / max) : 0) + ')';
+  }
+  let progTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!progTicking){ requestAnimationFrame(() => { updateProgress(); progTicking = false; }); progTicking = true; }
+  }, { passive: true });
+  updateProgress();
+
+  // Reveal animations
+  function observe(list, cls, opts){
+    if (reduceMotion || !('IntersectionObserver' in window)){ list.forEach(el => el.classList.add(cls)); return; }
+    const io = new IntersectionObserver((items) => {
+      items.forEach(item => { if (item.isIntersecting){ item.target.classList.add(cls); io.unobserve(item.target); } });
+    }, opts);
+    list.forEach(el => io.observe(el));
+  }
+  observe(document.querySelectorAll('.exhibit'), 'in-view', { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  observe(document.querySelectorAll('#footer'), 'is-visible', { threshold: 0.3 });
+</script>
+
+</body>
+</html>
