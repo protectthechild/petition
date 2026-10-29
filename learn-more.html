@@ -203,6 +203,106 @@
     text-decoration-color:var(--rule-dark);}
   footer a:hover{color:var(--paper); text-decoration-color:var(--stamp);}
 
+  /* ---------- In-section CTA (end of each exhibit) ---------- */
+  .exhibit-cta{display:flex; justify-content:flex-end; align-items:center; gap:18px; flex-wrap:wrap;
+    margin-top:26px; padding-top:20px; border-top:1px dashed var(--paper-line);}
+  .exhibit-cta-note{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--ink-soft); text-align:right;}
+  .exhibit-cta-btn{display:inline-flex; align-items:center; gap:10px; padding:12px 20px 12px 14px;
+    background:var(--stamp); color:var(--paper); text-decoration:none; border-radius:3px;
+    font-family:'Fraunces', serif; font-weight:700; font-size:1.08rem;
+    box-shadow:0 10px 22px -10px rgba(138,32,32,0.8);
+    transition:background .15s ease, transform .15s ease, box-shadow .15s ease;}
+  .exhibit-cta-btn:hover, .exhibit-cta-btn:focus-visible{background:#a12626; transform:translateY(-2px);
+    box-shadow:0 14px 26px -10px rgba(138,32,32,0.9); outline:none;}
+  .exhibit-cta-btn:focus-visible{box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--stamp);}
+  .exhibit-cta-btn .ico{width:28px; height:28px; border-radius:50%; background:var(--paper); color:var(--stamp);
+    display:grid; place-items:center;}
+  .exhibit-cta-btn .ico svg{width:15px; height:15px;}
+  .exhibit-cta-btn .arr{transition:transform .2s ease;}
+  .exhibit-cta-btn:hover .arr{transform:translateX(4px);}
+  @media (max-width:640px){
+    .exhibit-cta{justify-content:stretch;}
+    .exhibit-cta-note{text-align:left; width:100%;}
+    .exhibit-cta-btn{width:100%; justify-content:center;}
+  }
+
+  /* ---------- Floating "Sign the Petition" CTA (bottom-left) ---------- */
+  .float-cta{
+    position:fixed; z-index:90;
+    left:max(20px, env(safe-area-inset-left));
+    bottom:max(20px, env(safe-area-inset-bottom));
+    display:inline-flex; align-items:center; gap:14px;
+    padding:16px 26px 16px 18px;
+    background:var(--stamp); color:var(--paper);
+    border:2px solid #c0453f; border-radius:4px;
+    font-family:'IBM Plex Mono', monospace; text-decoration:none;
+    box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0.6);
+    opacity:0; visibility:hidden; transform:translateY(24px) scale(0.92);
+    transition:opacity .4s ease, transform .45s cubic-bezier(.2,.9,.3,1.2), visibility 0s linear .45s,
+      background .15s ease;
+  }
+  .float-cta.show{
+    opacity:1; visibility:visible; transform:translateY(0) scale(1);
+    transition:opacity .4s ease, transform .45s cubic-bezier(.2,.9,.3,1.2), visibility 0s,
+      background .15s ease;
+    animation:ctaPulse 2.4s ease-out infinite, ctaNudge 6s ease-in-out 1.5s infinite;
+  }
+  .float-cta:hover, .float-cta:focus-visible{
+    background:#a12626; outline:none; animation-play-state:paused;
+    transform:translateY(-3px) scale(1.03);
+  }
+  .float-cta:focus-visible{box-shadow:0 0 0 3px var(--bg), 0 0 0 6px var(--paper);}
+  .float-cta-icon{
+    width:42px; height:42px; flex-shrink:0; border-radius:50%;
+    display:grid; place-items:center; background:var(--paper); color:var(--stamp);
+  }
+  .float-cta-icon svg{width:22px; height:22px;}
+  .float-cta-text{display:flex; flex-direction:column; line-height:1.15;}
+  .float-cta-kicker{font-size:0.66rem; letter-spacing:0.16em; text-transform:uppercase; opacity:0.85;}
+  .float-cta-label{font-family:'Fraunces', serif; font-size:1.35rem; font-weight:700; letter-spacing:-0.005em;}
+  .float-cta-arrow{font-size:1.3rem; margin-left:2px; display:inline-block; animation:ctaArrow 1.6s ease-in-out infinite;}
+
+  /* Expanding ring pulse */
+  @keyframes ctaPulse{
+    0%  {box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0.65);}
+    70% {box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 18px rgba(192,69,63,0);}
+    100%{box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0);}
+  }
+  /* Periodic attention "stamp" wiggle */
+  @keyframes ctaNudge{
+    0%, 82%, 100%{transform:translateY(0) rotate(0) scale(1);}
+    85%{transform:translateY(-4px) rotate(-3deg) scale(1.06);}
+    88%{transform:translateY(0) rotate(2.5deg) scale(1.04);}
+    91%{transform:rotate(-1.5deg) scale(1.02);}
+    94%{transform:rotate(0) scale(1);}
+  }
+  @keyframes ctaArrow{0%,100%{transform:translateX(0);} 50%{transform:translateX(5px);}}
+
+  @media (prefers-reduced-motion: reduce){
+    .float-cta.show{animation:none;}
+    .float-cta-arrow{animation:none;}
+  }
+
+
+  /* Mid-width screens: compact floating button so it sits in the margin, not over the text */
+  @media (min-width: 641px) and (max-width: 1400px){
+    .float-cta{padding:10px 18px 10px 10px; gap:10px;}
+    .float-cta-kicker{display:none;}
+    .float-cta-icon{width:34px; height:34px;}
+    .float-cta-icon svg{width:18px; height:18px;}
+    .float-cta-label{font-size:1.05rem;}
+    .float-cta-label .full{display:none;}
+  }
+  @media (max-width: 640px){
+    .float-cta{left:max(14px, env(safe-area-inset-left)); bottom:max(14px, env(safe-area-inset-bottom));
+      padding:12px 20px 12px 12px; gap:11px;}
+    .float-cta-icon{width:36px; height:36px;}
+    .float-cta-icon svg{width:19px; height:19px;}
+    .float-cta-label{font-size:1.12rem;}
+    footer{padding-bottom:110px;}
+  }
+
   @media (max-width: 640px){
     .hero-stats{grid-template-columns:repeat(2,1fr);}
     .hero-stat:nth-child(2){border-right:none;}
@@ -285,6 +385,10 @@
         <p><strong>The Adams case was not an aberration. It was the predictable output of a
           system designed to shield the institution first and the child second.</strong></p>
       </div>
+      <div class="exhibit-cta">
+        <span class="exhibit-cta-note">The record is the Church's own.</span>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
     </div>
   </section>
 
@@ -315,6 +419,10 @@
           institution staffs its growth engine with the free labor of teenagers and asks its
           poorest members for ten percent.</strong></p>
       </div>
+      <div class="exhibit-cta">
+        <span class="exhibit-cta-note">Accountability starts with children.</span>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
     </div>
   </section>
 
@@ -342,6 +450,10 @@
           practice that drew organized protest from within the membership itself.</p>
         <p><strong>A system in which men hold every key, judge every worthiness, and speak for
           God to women is not complementary. It is control, formalized.</strong></p>
+      </div>
+      <div class="exhibit-cta">
+        <span class="exhibit-cta-note">Every voice counts. Add yours.</span>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -375,6 +487,10 @@
           persuasion and punishes scrutiny — refined, generation after generation, into the
           friendliest hard sell in America.</strong></p>
       </div>
+      <div class="exhibit-cta">
+        <span class="exhibit-cta-note">Decide on the evidence.</span>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
     </div>
   </section>
 
@@ -402,6 +518,10 @@
           identifying the prophets who taught them as having been wrong.</p>
         <p><strong>An institution claiming continuous divine guidance was, on the question of
           basic human equality, decades behind the society it claimed to be sent to save.</strong></p>
+      </div>
+      <div class="exhibit-cta">
+        <span class="exhibit-cta-note">Equality came late. So did this.</span>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -431,6 +551,10 @@
         <p><strong>A doctrine that ranks its own families above all others — in this life and the
           next — should expect to be judged by how it treated the most vulnerable inside its
           walls. That record is the reason this petition exists.</strong></p>
+      </div>
+      <div class="exhibit-cta">
+        <span class="exhibit-cta-note">Judge it by the most vulnerable.</span>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -462,6 +586,18 @@
   </section>
 
 </main>
+
+<a href="index.html#sign" class="float-cta" id="floatCta" aria-label="Sign the petition">
+  <span class="float-cta-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+    </svg>
+  </span>
+  <span class="float-cta-text">
+    <span class="float-cta-kicker">Add your name</span>
+    <span class="float-cta-label">Sign<span class="full"> the Petition</span> <span class="float-cta-arrow" aria-hidden="true">→</span></span>
+  </span>
+</a>
 
 <footer id="footer">
   <p>Presented by <a href="https://rebuttalds.org" target="_blank" rel="noopener">RebuttaLDS.org</a>.
@@ -504,6 +640,32 @@
   }
   observe(exhibits, 'in-view', { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
   observe(fades, 'is-visible', { threshold: 0.3 });
+
+  // Floating CTA: show after a short scroll; hide while a section CTA or the Act panel is on screen
+  const floatCta = document.getElementById('floatCta');
+  const isPhone = window.matchMedia('(max-width: 640px)');
+  const blockers = new Set();
+  function updateFloatCta(){
+    const scrolled = (window.scrollY || document.documentElement.scrollTop) > 320;
+    const act = document.getElementById('act');
+    const blocked = [...blockers].some(el => el === act || isPhone.matches);
+    floatCta.classList.toggle('show', scrolled && !blocked);
+  }
+  if ('IntersectionObserver' in window) {
+    const ctaIO = new IntersectionObserver((items) => {
+      items.forEach(item => { item.isIntersecting ? blockers.add(item.target) : blockers.delete(item.target); });
+      updateFloatCta();
+    }, { threshold: 0 });
+    document.querySelectorAll('.exhibit-cta').forEach(el => ctaIO.observe(el));
+    const act = document.getElementById('act');
+    if (act) new IntersectionObserver((items) => {
+      items.forEach(item => { item.isIntersecting ? blockers.add(act) : blockers.delete(act); });
+      updateFloatCta();
+    }, { threshold: 0, rootMargin: '0px 0px -35% 0px' }).observe(act);
+  }
+  window.addEventListener('scroll', updateFloatCta, { passive:true });
+  isPhone.addEventListener('change', updateFloatCta);
+  updateFloatCta();
 
   const navLinks = document.querySelectorAll('.quicknav-links a[data-nav]');
   if ('IntersectionObserver' in window) {
