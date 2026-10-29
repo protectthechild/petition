@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Evidence Briefs — Six Themes | Protect the Child</title>
+<meta name="description" content="Six sourced evidence briefs behind the Protect the Child petition: child protection failures, financial opacity, patriarchy, engineered persuasion, the priesthood ban, and the doctrine of exclusivity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #131209;
+    --paper: #ece4cd;
+    --paper-dim: #e1d7bb;
+    --paper-line: #cabb92;
+    --ink: #221f16;
+    --ink-soft: #55503e;
+    --stamp: #8a2020;
+    --green: #2f4a35;
+    --muted: #a89f80;
+    --rule-dark: #3a3626;
+    --max: 860px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, #221f14 0%, transparent 60%),
+      radial-gradient(ellipse 900px 600px at 100% 20%, #1c1a12 0%, transparent 55%);
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none; z-index:999; opacity:0.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;}
+  ::selection{background:var(--stamp); color:var(--paper);}
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; letter-spacing:-0.01em;}
+
+  .progress-rail{position:fixed; top:0; left:0; right:0; height:3px; z-index:100; background:var(--rule-dark);}
+  .progress-fill{height:100%; width:100%; transform-origin:left center; transform:scaleX(0);
+    background:linear-gradient(90deg, var(--stamp), #c0453f);
+    box-shadow:0 0 10px 0 rgba(138,32,32,0.7); will-change:transform;}
+
+  .quicknav{position:sticky; top:3px; z-index:50; background:rgba(19,18,9,0.86);
+    backdrop-filter:blur(6px); border-bottom:1px solid var(--rule-dark); padding:0 clamp(20px,5vw,48px);}
+  .quicknav-inner{max-width:var(--max); margin:0 auto; width:100%; display:flex;
+    align-items:center; justify-content:space-between; padding:12px 0;}
+  .quicknav-brand{font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;}
+  .quicknav-links{display:flex; gap:4px; font-family:'IBM Plex Mono', monospace; font-size:0.74rem;}
+  .quicknav-links a{text-decoration:none; color:var(--muted); padding:6px 11px;
+    border:1px solid transparent; border-radius:2px; display:inline-block;
+    transition:color .15s ease, border-color .15s ease, background .15s ease, transform .15s ease;}
+  .quicknav-links a:hover, .quicknav-links a:focus-visible{color:var(--paper); border-color:var(--rule-dark); outline:none; transform:translateY(-1px);}
+  .quicknav-links a.active{color:var(--stamp); background:#8a20201a; border-color:#8a202044;}
+  .quicknav-links a.nav-sign{color:var(--paper); background:var(--stamp); border-color:var(--stamp);
+    font-weight:600; margin-left:6px;}
+  .quicknav-links a.nav-sign:hover, .quicknav-links a.nav-sign:focus-visible{background:#a12626; border-color:#a12626; transform:translateY(-1px);}
+  .quicknav-links a.nav-learn{color:#cfc6a9; background:#2b2818; border-color:var(--rule-dark); font-weight:600;}
+  .quicknav-links a.nav-learn:hover, .quicknav-links a.nav-learn:focus-visible{color:var(--paper); background:#363217; border-color:#4a4530; transform:translateY(-1px);}
+
+  @keyframes fadeUp{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes stampSlam{
+    0%{opacity:0; transform:scale(2.6) rotate(-24deg);}
+    50%{opacity:1; transform:scale(0.82) rotate(10deg);}
+    72%{transform:scale(1.08) rotate(3deg);}
+    100%{opacity:0.9; transform:scale(1) rotate(6deg);}
+  }
+  @keyframes docStampSlam{
+    0%{opacity:0; transform:scale(2.4) rotate(14deg);}
+    50%{opacity:1; transform:scale(0.85) rotate(-9deg);}
+    72%{transform:scale(1.07) rotate(-3deg);}
+    100%{opacity:1; transform:scale(1) rotate(-5deg);}
+  }
+  @keyframes tabDrop{from{opacity:0; transform:translateY(-160%);} to{opacity:1; transform:translateY(0);}}
+  @keyframes panelRise{from{opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);} to{opacity:1; transform:translateY(0) scale(1) rotate(0deg);}}
+
+  .hero{max-width:var(--max); margin:0 auto; padding:clamp(56px,9vw,104px) clamp(20px,5vw,48px) clamp(40px,6vw,64px); position:relative; overflow:hidden;}
+  .hero-filehead{display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--muted); letter-spacing:0.08em;
+    border-bottom:1px dashed var(--rule-dark); padding-bottom:14px; margin-bottom:34px; flex-wrap:wrap; gap:8px;
+    opacity:0; animation:fadeUp .6s ease forwards;}
+  .hero-eyebrow{display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.74rem;
+    letter-spacing:0.16em; color:var(--stamp); text-transform:uppercase; margin-bottom:18px;
+    opacity:0; animation:fadeUp .6s ease forwards; animation-delay:.14s;}
+  .hero h1{font-size:clamp(2.4rem, 6.2vw, 4.2rem); font-weight:600; line-height:1.04; color:var(--paper);
+    max-width:15ch; opacity:0; animation:fadeUp .85s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.26s;}
+  .hero-sub{margin-top:22px; max-width:58ch; font-size:1.1rem; line-height:1.6; color:#cfc6a9;
+    font-weight:500; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.52s;}
+  .hero-cw{margin-top:16px; font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+    color:var(--muted); text-transform:uppercase; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.62s;}
+  .hero-stats{margin-top:44px; display:grid; grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--rule-dark); opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.72s;}
+  .hero-stat{padding:16px 14px 0 0; border-right:1px solid var(--rule-dark);}
+  .hero-stat + .hero-stat{padding-left:14px;}
+  .hero-stat:last-child{border-right:none;}
+  .hero-stat-num{font-family:'Fraunces', serif; font-size:2rem; font-weight:600; color:var(--paper); font-variant-numeric:tabular-nums;}
+  .hero-stat-label{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.06em;
+    color:var(--muted); margin-top:2px; line-height:1.35;}
+  .stampmark{position:absolute; top:clamp(30px,7vw,58px); right:clamp(10px,4vw,30px);
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.78rem; letter-spacing:0.14em;
+    color:var(--stamp); border:2.5px solid var(--stamp); padding:9px 14px; border-radius:3px;
+    opacity:0; mix-blend-mode:screen; user-select:none;
+    animation:stampSlam .8s cubic-bezier(.2,.9,.3,1.2) forwards; animation-delay:1s;}
+
+  /* Table of contents */
+  .toc{max-width:var(--max); margin:0 auto; padding:0 clamp(20px,5vw,48px);}
+  .toc-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule-dark);}
+  .toc-list li{border-bottom:1px solid var(--rule-dark);}
+  .toc-list a{display:grid; grid-template-columns:56px 1fr auto; gap:14px; align-items:baseline;
+    padding:14px 0; text-decoration:none; transition:color .15s ease, padding .2s ease;}
+  .toc-list a:hover, .toc-list a:focus-visible{color:var(--paper); padding-left:6px; outline:none;}
+  .toc-num{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--stamp); font-weight:600;}
+  .toc-title{font-family:'Fraunces', serif; font-size:1.12rem; font-weight:600; color:#d9d0b4;}
+  .toc-kicker{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase;}
+
+  main{max-width:var(--max); margin:0 auto; padding:0 clamp(20px,5vw,48px) 40px;}
+  .exhibit{position:relative; margin-top:64px; scroll-margin-top:80px;}
+  .folder-tab{position:relative; display:inline-flex; align-items:center; gap:8px;
+    background:var(--paper-dim); color:var(--ink); font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.1em; font-weight:600; padding:8px 18px 10px;
+    clip-path:polygon(6% 0, 94% 0, 100% 100%, 0 100%); margin-left:28px; margin-bottom:-1px;
+    opacity:0; transform:translateY(-160%);}
+  .folder-tab .tab-dot{width:6px; height:6px; border-radius:50%; background:var(--stamp); display:inline-block;}
+  .exhibit.in-view .folder-tab{animation:tabDrop .55s cubic-bezier(.2,.8,.3,1.1) forwards;}
+  .panel{background:var(--paper); color:var(--ink); border-radius:2px;
+    padding:clamp(24px,4vw,44px) clamp(20px,4.5vw,44px) clamp(28px,4vw,40px);
+    box-shadow:0 24px 50px -20px rgba(0,0,0,0.55), 0 2px 0 var(--paper-line) inset;
+    position:relative; overflow:hidden; opacity:0; transform:translateY(60px) scale(0.97) rotate(-0.6deg);}
+  .exhibit.in-view .panel{animation:panelRise .7s cubic-bezier(.16,1,.3,1) forwards; animation-delay:.12s;}
+  .panel::after{content:""; position:absolute; left:0; right:0; top:0; height:4px;
+    background:repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 11px); opacity:0.12;}
+  .exhibit-head{display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    border-bottom:2px solid var(--ink); padding-bottom:18px; margin-bottom:8px;}
+  .exhibit-kicker{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.14em;
+    color:var(--ink-soft); text-transform:uppercase;}
+  .exhibit-head-text h2{margin-top:6px; font-size:clamp(1.5rem, 3.2vw, 2.1rem); font-weight:600; line-height:1.08;}
+  .doc-stamp{font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:0.85rem; letter-spacing:0.12em;
+    color:var(--stamp); border:3px solid var(--stamp); padding:8px 12px; border-radius:4px;
+    white-space:nowrap; flex-shrink:0; margin-top:4px; opacity:0; transform:scale(2.4) rotate(14deg);}
+  .exhibit.in-view .doc-stamp{animation:docStampSlam .6s cubic-bezier(.2,.9,.3,1.2) forwards; animation-delay:.55s;}
+
+  .brief-meta{display:flex; flex-wrap:wrap; gap:6px 18px; margin:14px 0 4px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;}
+  .brief-meta a{color:var(--ink-soft); text-decoration:none; border-bottom:1px dashed var(--paper-line);}
+  .brief-meta a:hover, .brief-meta a:focus-visible{color:var(--stamp); border-color:var(--stamp); outline:none;}
+
+  .prose{margin-top:20px;}
+  .prose p{font-size:0.99rem; line-height:1.72; color:var(--ink); margin:0 0 16px; max-width:66ch;}
+  .prose p strong{color:var(--stamp);}
+  .prose p.lede{font-family:'Fraunces', serif; font-size:1.14rem; line-height:1.55; font-weight:500;}
+
+  sup.cite{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; line-height:0; margin-left:1px;}
+  sup.cite a{color:var(--stamp); text-decoration:none; font-weight:600; padding:0 1px;}
+  sup.cite a:hover, sup.cite a:focus-visible{text-decoration:underline; outline:none;}
+
+  .sub-head{font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--ink); font-weight:600; margin:30px 0 12px;
+    padding-top:20px; border-top:1px solid var(--paper-line); scroll-margin-top:90px;
+    display:flex; align-items:center; gap:10px;}
+  .sub-head::before{content:""; width:8px; height:8px; background:var(--stamp); display:inline-block;}
+
+  .refs{list-style:none; margin:0; padding:0; counter-reset:ref var(--start, 0);}
+  .refs li{counter-increment:ref; display:grid; grid-template-columns:34px 1fr; gap:10px;
+    padding:9px 0; border-bottom:1px dotted var(--paper-line); font-size:0.9rem; line-height:1.55; color:var(--ink);
+    scroll-margin-top:100px; transition:background .4s ease;}
+  .refs li:last-child{border-bottom:none;}
+  .refs li::before{content:counter(ref); font-family:'IBM Plex Mono', monospace; font-weight:600;
+    color:var(--stamp); font-size:0.8rem; padding-top:2px;}
+  .refs li:target{background:#d8cba0;}
+  .refs li a{color:var(--ink-soft); word-break:break-word; text-underline-offset:2px; text-decoration-color:var(--paper-line);}
+  .refs li a:hover{color:var(--stamp); text-decoration-color:var(--stamp);}
+  .refs .ref-note{display:block; margin-top:4px; font-style:italic; color:var(--ink-soft); font-size:0.86rem;}
+  .refs.primary li{background:var(--paper-dim); padding:12px 14px; border-bottom:none; margin-bottom:6px; border-left:3px solid var(--stamp);}
+  .refs.primary li:target{background:#d8cba0;}
+
+  .notes{margin-top:28px; background:var(--ink); color:var(--paper); border-radius:2px;
+    padding:20px 22px 8px; scroll-margin-top:90px;}
+  .notes h3{font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:#e0a19c; font-weight:600; margin-bottom:12px;}
+  .notes ul{margin:0; padding:0 0 0 18px;}
+  .notes li{font-size:0.9rem; line-height:1.6; color:#ddd4b9; margin-bottom:12px;}
+  .notes li strong{color:var(--paper);}
+
+  .field-note{max-width:var(--max); margin:52px auto 0; padding:0 clamp(20px,5vw,48px);
+    display:flex; gap:16px; align-items:flex-start; color:var(--muted); font-size:0.92rem; line-height:1.6;
+    opacity:0; transform:translateX(-16px); transition:opacity .6s ease, transform .6s ease;}
+  .field-note.is-visible{opacity:1; transform:translateX(0);}
+  .field-note .mark{font-family:'IBM Plex Mono', monospace; color:var(--stamp); font-size:0.8rem; margin-top:2px;}
+
+  footer{max-width:var(--max); margin:88px auto 0; padding:32px clamp(20px,5vw,48px) 60px;
+    border-top:1px solid var(--rule-dark); opacity:0; transform:translateY(20px);
+    transition:opacity .7s ease, transform .7s ease;}
+  footer.is-visible{opacity:1; transform:translateY(0);}
+  footer p{font-size:0.86rem; line-height:1.7; color:var(--muted); max-width:66ch;}
+  .foot-mono{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em;
+    color:#5f5a44; margin-top:18px; text-transform:uppercase;}
+  .foot-legal{margin-top:28px; padding-top:20px; border-top:1px dashed var(--rule-dark);
+    opacity:0; transform:translateY(14px);
+    transition:opacity .7s ease .25s, transform .7s ease .25s;}
+  footer.is-visible .foot-legal{opacity:1; transform:translateY(0);}
+  .foot-speech{font-size:0.8rem; line-height:1.7; color:#87805f; margin:0; max-width:70ch;}
+  .foot-speech a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--rule-dark); white-space:nowrap;
+    transition:color .15s ease, text-decoration-color .15s ease;}
+  .foot-speech a:hover, .foot-speech a:focus-visible{color:var(--paper);
+    text-decoration-color:var(--stamp); outline:none;}
+  footer a{color:var(--muted); text-decoration:underline; text-underline-offset:3px;
+    text-decoration-color:var(--rule-dark);}
+  footer a:hover{color:var(--paper); text-decoration-color:var(--stamp);}
+
+  /* In-section CTA */
+  .exhibit-cta{display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap;
+    margin-top:26px; padding-top:20px; border-top:1px dashed var(--paper-line);}
+  .exhibit-cta-back{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--ink-soft); text-decoration:none; border-bottom:1px dashed var(--paper-line);
+    transition:color .15s ease, border-color .15s ease;}
+  .exhibit-cta-back:hover, .exhibit-cta-back:focus-visible{color:var(--stamp); border-color:var(--stamp); outline:none;}
+  .exhibit-cta-btn{display:inline-flex; align-items:center; gap:10px; padding:12px 20px 12px 14px;
+    background:var(--stamp); color:var(--paper); text-decoration:none; border-radius:3px;
+    font-family:'Fraunces', serif; font-weight:700; font-size:1.08rem;
+    box-shadow:0 10px 22px -10px rgba(138,32,32,0.8);
+    transition:background .15s ease, transform .15s ease, box-shadow .15s ease;}
+  .exhibit-cta-btn:hover, .exhibit-cta-btn:focus-visible{background:#a12626; transform:translateY(-2px);
+    box-shadow:0 14px 26px -10px rgba(138,32,32,0.9); outline:none;}
+  .exhibit-cta-btn:focus-visible{box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--stamp);}
+  .exhibit-cta-btn .ico{width:28px; height:28px; border-radius:50%; background:var(--paper); color:var(--stamp);
+    display:grid; place-items:center;}
+  .exhibit-cta-btn .ico svg{width:15px; height:15px;}
+  .exhibit-cta-btn .arr{transition:transform .2s ease;}
+  .exhibit-cta-btn:hover .arr{transform:translateX(4px);}
+  @media (max-width:640px){
+    .exhibit-cta{justify-content:stretch;}
+    .exhibit-cta-back{width:100%;}
+    .exhibit-cta-btn{width:100%; justify-content:center;}
+  }
+
+  /* Floating CTA */
+  .float-cta{
+    position:fixed; z-index:90;
+    left:max(20px, env(safe-area-inset-left));
+    bottom:max(20px, env(safe-area-inset-bottom));
+    display:inline-flex; align-items:center; gap:14px;
+    padding:16px 26px 16px 18px;
+    background:var(--stamp); color:var(--paper);
+    border:2px solid #c0453f; border-radius:4px;
+    font-family:'IBM Plex Mono', monospace; text-decoration:none;
+    box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0.6);
+    opacity:0; visibility:hidden; transform:translateY(24px) scale(0.92);
+    transition:opacity .4s ease, transform .45s cubic-bezier(.2,.9,.3,1.2), visibility 0s linear .45s,
+      background .15s ease;
+  }
+  .float-cta.show{
+    opacity:1; visibility:visible; transform:translateY(0) scale(1);
+    transition:opacity .4s ease, transform .45s cubic-bezier(.2,.9,.3,1.2), visibility 0s,
+      background .15s ease;
+    animation:ctaPulse 2.4s ease-out infinite, ctaNudge 6s ease-in-out 1.5s infinite;
+  }
+  .float-cta:hover, .float-cta:focus-visible{
+    background:#a12626; outline:none; animation-play-state:paused;
+    transform:translateY(-3px) scale(1.03);
+  }
+  .float-cta:focus-visible{box-shadow:0 0 0 3px var(--bg), 0 0 0 6px var(--paper);}
+  .float-cta-icon{width:42px; height:42px; flex-shrink:0; border-radius:50%;
+    display:grid; place-items:center; background:var(--paper); color:var(--stamp);}
+  .float-cta-icon svg{width:22px; height:22px;}
+  .float-cta-text{display:flex; flex-direction:column; line-height:1.15;}
+  .float-cta-kicker{font-size:0.66rem; letter-spacing:0.16em; text-transform:uppercase; opacity:0.85;}
+  .float-cta-label{font-family:'Fraunces', serif; font-size:1.35rem; font-weight:700; letter-spacing:-0.005em;}
+  .float-cta-arrow{font-size:1.3rem; margin-left:2px; display:inline-block; animation:ctaArrow 1.6s ease-in-out infinite;}
+  @keyframes ctaPulse{
+    0%  {box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0.65);}
+    70% {box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 18px rgba(192,69,63,0);}
+    100%{box-shadow:0 18px 40px -12px rgba(0,0,0,0.75), 0 0 0 0 rgba(192,69,63,0);}
+  }
+  @keyframes ctaNudge{
+    0%, 82%, 100%{transform:translateY(0) rotate(0) scale(1);}
+    85%{transform:translateY(-4px) rotate(-3deg) scale(1.06);}
+    88%{transform:translateY(0) rotate(2.5deg) scale(1.04);}
+    91%{transform:rotate(-1.5deg) scale(1.02);}
+    94%{transform:rotate(0) scale(1);}
+  }
+  @keyframes ctaArrow{0%,100%{transform:translateX(0);} 50%{transform:translateX(5px);}}
+  @media (prefers-reduced-motion: reduce){
+    .float-cta.show{animation:none;}
+    .float-cta-arrow{animation:none;}
+  }
+  @media (min-width: 641px) and (max-width: 1400px){
+    .float-cta{padding:10px 18px 10px 10px; gap:10px;}
+    .float-cta-kicker{display:none;}
+    .float-cta-icon{width:34px; height:34px;}
+    .float-cta-icon svg{width:18px; height:18px;}
+    .float-cta-label{font-size:1.05rem;}
+    .float-cta-label .full{display:none;}
+  }
+  @media (max-width: 640px){
+    .float-cta{left:max(14px, env(safe-area-inset-left)); bottom:max(14px, env(safe-area-inset-bottom));
+      padding:12px 20px 12px 12px; gap:11px;}
+    .float-cta-icon{width:36px; height:36px;}
+    .float-cta-icon svg{width:19px; height:19px;}
+    .float-cta-label{font-size:1.12rem;}
+    footer{padding-bottom:110px;}
+  }
+
+  @media (max-width: 640px){
+    .hero-stats{grid-template-columns:repeat(2,1fr);}
+    .hero-stat:nth-child(2){border-right:none;}
+    .hero-stat:nth-child(3){padding-left:0;}
+    .hero-stat{border-bottom:1px solid var(--rule-dark); padding-bottom:14px;}
+    .quicknav-inner{flex-wrap:wrap; justify-content:center; gap:4px; padding:8px 0;}
+    .quicknav-brand{display:none;}
+    .quicknav-links{flex-wrap:wrap; justify-content:center;}
+    .quicknav-links a{padding:6px 8px; font-size:0.68rem;}
+    .exhibit-head{flex-direction:column;}
+    .doc-stamp{align-self:flex-start;}
+    .stampmark{display:none;}
+    .toc-list a{grid-template-columns:40px 1fr;}
+    .toc-kicker{display:none;}
+  }
+
+  @media print{
+    body{background:#fff; color:#000;}
+    body::before, .progress-rail, .quicknav, .float-cta, .exhibit-cta, .stampmark{display:none !important;}
+    .panel, .folder-tab, .doc-stamp, .hero *, footer, .field-note{opacity:1 !important; transform:none !important; animation:none !important;}
+    .panel{box-shadow:none; border:1px solid #999;}
+    .exhibit{page-break-before:always;}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<nav class="quicknav" aria-label="Section navigation">
+  <div class="quicknav-inner">
+    <span class="quicknav-brand">Protect the Child · Evidence Briefs</span>
+    <div class="quicknav-links">
+      <a href="learn-more.html">← Learn More</a>
+      <a href="#theme-1" data-nav>I</a>
+      <a href="#theme-2" data-nav>II</a>
+      <a href="#theme-3" data-nav>III</a>
+      <a href="#theme-4" data-nav>IV</a>
+      <a href="#theme-5" data-nav>V</a>
+      <a href="#theme-6" data-nav>VI</a>
+      <a href="index.html#sign" class="nav-sign">Sign the Petition</a>
+      <a href="https://rebuttalds.org" target="_blank" rel="noopener" class="nav-learn">RebuttaLDS.org →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="stampmark">EVIDENCE<br>FILE</div>
+  <div class="hero-filehead">
+    <span>Evidence Briefs · Six Themes</span>
+    <span>Sources verified October 2026</span>
+  </div>
+  <span class="hero-eyebrow">The Record, In Full</span>
+  <h1>Six briefs.<br>Every claim sourced.</h1>
+  <p class="hero-sub">Each theme on the Learn More page is expanded here into a two-page brief:
+    the argument, three primary references, a body of secondary sources, and notes on precision
+    and the Church's own response — so every reader can check the record for themselves.</p>
+  <p class="hero-cw">Content note: this page discusses the sexual abuse of children.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">Evidence<br>briefs</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">18</div><div class="hero-stat-label">Primary<br>references</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">60+</div><div class="hero-stat-label">Secondary<br>sources</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">1831–2026</div><div class="hero-stat-label">Span of the<br>record</div></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Briefs in this file">
+  <ol class="toc-list">
+    <li><a href="#theme-1"><span class="toc-num">I</span><span class="toc-title">Minors, Marriage, and the Failure to Protect</span><span class="toc-kicker">Pedophilia</span></a></li>
+    <li><a href="#theme-2"><span class="toc-num">II</span><span class="toc-title">A $100-Billion-Plus Question of Trust</span><span class="toc-kicker">Financial Corruption</span></a></li>
+    <li><a href="#theme-3"><span class="toc-num">III</span><span class="toc-title">A Patriarchy by Design</span><span class="toc-kicker">Chauvinism</span></a></li>
+    <li><a href="#theme-4"><span class="toc-num">IV</span><span class="toc-title">The Architecture of Persuasion</span><span class="toc-kicker">Psychological Warfare</span></a></li>
+    <li><a href="#theme-5"><span class="toc-num">V</span><span class="toc-title">The Ban and the Folklore</span><span class="toc-kicker">Racism</span></a></li>
+    <li><a href="#theme-6"><span class="toc-num">VI</span><span class="toc-title">The Doctrine of Exclusivity</span><span class="toc-kicker">Arrogance</span></a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <!-- ============ BRIEF 1 ============ -->
+  <section class="exhibit" id="theme-1">
+    <div class="folder-tab"><span class="tab-dot"></span> BRIEF I</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">01 / Pedophilia</span>
+          <h2>Minors, Marriage, and the Failure to Protect</h2>
+        </div>
+        <span class="doc-stamp">DOCUMENTED</span>
+      </div>
+      <div class="brief-meta">
+        <a href="#theme-1-argument">Argument</a><a href="#theme-1-primary">Primary references</a><a href="#theme-1-secondary">Secondary references</a><a href="#theme-1-notes">Precision &amp; response</a>
+      </div>
+      <div class="prose" id="theme-1-argument">
+        <p class="lede">The Church's own history admits that its founder married a child.</p>
+        <p>The Gospel Topics essay "Plural Marriage in Kirtland and Nauvoo," published in October 2014,
+          estimates that Joseph Smith was sealed to between 30 and 40 women, and states that the youngest,
+          Helen Mar Kimball, was sealed to him several months before her 15th birthday.<sup class="cite"><a href="#t1-r1">1</a></sup>
+          Helen was born on August 22, 1828, and sealed in 1843: she was 14. Joseph Smith was 37. The essay
+          also acknowledges sealings to women already married to living husbands; historian Todd Compton
+          counts eleven of them — fully a third of the total.<sup class="cite"><a href="#t1-r9">9</a></sup>
+          The essay's explanation, that such a marriage was "inappropriate by today's standards" but legal
+          at the time, concedes the point even in the Church's chosen framing.</p>
+        <p>The practice did not end with Joseph. Brigham Young married Clarissa (Clara) Decker on May 8, 1844.
+          The Church Historian's Press records her birth as July 22, 1828 — making her 15 at the wedding.
+          Young was 42.<sup class="cite"><a href="#t1-r10">10</a></sup> As plural marriage took shape, girls
+          under 16 could be given to the most powerful men in the movement, often with a parent's
+          encouragement; Helen Mar Kimball's own account of her father offering her to the Prophet is the
+          best-known example.</p>
+        <p>The modern question is whether the institution now puts children ahead of its own legal exposure.
+          The Paul Adams case in Bisbee, Arizona, suggests it did not. According to court records and the
+          Associated Press, Adams, a U.S. Border Patrol agent, confessed to Bishop John Herrod in 2011 that he
+          was sexually abusing his 5-year-old daughter. Herrod, also a family physician, followed Church
+          policy and called the Church's abuse help line. In a recorded interview with federal investigators,
+          he said he was told: "You absolutely can do nothing."<sup class="cite"><a href="#t1-r2">2</a></sup>
+          Church lawyers have stated in the litigation that every help-line call Herrod and his successor made
+          was taken by attorneys at Kirton McConkie, the Church's Salt Lake City law firm. In 2012 Herrod
+          told the incoming bishop, Robert "Kim" Mauzy, who held a disciplinary council and excommunicated
+          Adams in 2013. No one notified police or child-welfare authorities.</p>
+        <p>The abuse went on for about seven years and spread to a younger daughter. A federal agent testified
+          that the videos showed her abuse began when she was roughly three to six weeks old. Adams recorded
+          the abuse and shared it online. In 2016 New Zealand police found a video and started an
+          international search; on February 8, 2017, Homeland Security agents arrested Adams at the Naco
+          border crossing and rescued all six children.<sup class="cite"><a href="#t1-r7">7</a></sup> He was
+          indicted on federal charges and died by suicide in custody in December 2017, before trial. His
+          wife, Leizza, pleaded no contest to two counts of child abuse and was sentenced to 2½ years in
+          prison followed by probation.</p>
+        <p>The AP's 2022 investigation drew on nearly 12,000 pages of sealed records from an unrelated West
+          Virginia lawsuit. They show that the help line, set up in 1995, sorts calls through a written
+          protocol whose "High Risk Cases" section asks about the Church's legal exposure, sends serious
+          cases to Kirton McConkie lawyers, and — Axios reported — destroys call records.<sup class="cite"><a href="#t1-r2">2</a>,<a href="#t1-r6">6</a></sup>
+          The AP concluded that the system can easily be misused to steer abuse reports away from law
+          enforcement. The Church says the help line exists to protect victims and to help bishops follow
+          reporting laws.</p>
+        <p>The courts have now closed the door on the Adams children. A Cochise County judge dismissed their
+          lawsuit in November 2023; the Court of Appeals revived it. On July 30, 2026, the Arizona Supreme
+          Court ruled unanimously for the Church, holding that the state's mandatory-reporting statute,
+          A.R.S. § 13-3620, lets clergy withhold confessional communications when they judge it
+          "reasonable and necessary within the concepts of the religion," and that First Amendment
+          principles bar judges and juries from second-guessing a church's view of what counts as a
+          confession.<sup class="cite"><a href="#t1-r3">3</a>,<a href="#t1-r4">4</a></sup> The plaintiffs'
+          lawyer, Lynne Cadigan, called it a shocking decision and moved for reconsideration.<sup class="cite"><a href="#t1-r5">5</a></sup></p>
+        <p>The legislature has not filled the gap. Bills to require clergy to report ongoing abuse were
+          introduced by Sen. Victoria Steele from 2021 to 2023 and by Rep. Stacey Travers from 2023 through
+          2026 (HB 2039 in 2026). Each time, committee chairs refused them a hearing.<sup class="cite"><a href="#t1-r8">8</a></sup>
+          <strong>The case shows a system in which the Church's lawyers, its doctrine, and state law together
+          kept a known abuser's secret while two girls were abused.</strong></p>
+      </div>
+
+      <h3 class="sub-head" id="theme-1-primary">Primary references</h3>
+      <ol class="refs primary" style="--start:0">
+        <li id="t1-r1"><span>The Church of Jesus Christ of Latter-day Saints, "Plural Marriage in Kirtland and Nauvoo," Gospel Topics Essays (Oct. 2014). <a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/plural-marriage-in-kirtland-and-nauvoo" target="_blank" rel="noopener">churchofjesuschrist.org</a><span class="ref-note">Establishes, in the Church's own words, the 30–40 estimate, Helen Mar Kimball's age, and sealings to already-married women.</span></span></li>
+        <li id="t1-r2"><span>Michael Rezendes, "Seven years of sex abuse: How Mormon officials let it happen," Associated Press, Aug. 4, 2022 (via Religion News Service). <a href="https://religionnews.com/2022/08/04/seven-years-of-sex-abuse-how-mormon-officials-let-it-happen/" target="_blank" rel="noopener">religionnews.com</a><span class="ref-note">Documents the help-line call, the bishop's account of what he was told, the Mauzy handoff, and the sealed help-line protocol.</span></span></li>
+        <li id="t1-r3"><span>Arizona Supreme Court, <em>Doe v. Corporation of the President of The Church of Jesus Christ of Latter-day Saints</em> (July 30, 2026), as reported by AZFamily. <a href="https://www.azfamily.com/2026/07/31/arizona-supreme-court-its-churchs-call-what-clergy-must-report/" target="_blank" rel="noopener">azfamily.com</a><span class="ref-note">Establishes the unanimous holding and procedural history; the official opinion is published at azcourts.gov.</span></span></li>
+      </ol>
+
+      <h3 class="sub-head" id="theme-1-secondary">Secondary references</h3>
+      <ol class="refs" style="--start:3">
+        <li id="t1-r4"><span>Arizona Mirror, "High court says churches, not judges, define a 'confession' when it comes to reporting child abuse," July 30, 2026. <a href="https://azmirror.com/2026/07/30/high-court-says-churches-not-judges-define-a-confession-when-it-comes-to-reporting-child-abuse/" target="_blank" rel="noopener">azmirror.com</a></span></li>
+        <li id="t1-r5"><span>ABA Journal, "Privileged Penance," Aug. 24, 2026. <a href="https://www.abajournal.com/web/article/privileged-penance" target="_blank" rel="noopener">abajournal.com</a></span></li>
+        <li id="t1-r6"><span>Axios Salt Lake City, "Mormon sex abuse 'help line' discouraged police reports," Aug. 5, 2022. <a href="https://www.axios.com/local/salt-lake-city/2022/08/05/mormon-sex-abuse-help-line-discouraged-police-reports" target="_blank" rel="noopener">axios.com</a></span></li>
+        <li id="t1-r7"><span>Associated Press, "Sex-abuse video victimizes child long after abuser is gone." <a href="https://www.stltoday.com/news/nation-world/sex-abuse-video-victimizes-child-long-after-abuser-is-gone/article_ed78b34a-62fd-580d-b9c3-26f100851daa.html" target="_blank" rel="noopener">stltoday.com</a></span></li>
+        <li id="t1-r8"><span>Arizona Daily Star, "AZ lawmaker vows to block forcing clergy to report confessed crimes," 2026. <a href="https://tucson.com/news/state-regional/government-politics/article_d1f78c9e-215a-488e-aeda-c18da728d443.html" target="_blank" rel="noopener">tucson.com</a>; Arizona Legislature, HB 2039 (2026). <a href="https://www.azleg.gov/legtext/57leg/2R/bills/HB2039P.pdf" target="_blank" rel="noopener">azleg.gov</a></span></li>
+        <li id="t1-r9"><span>Todd Compton, <em>In Sacred Loneliness: The Plural Wives of Joseph Smith</em> (Signature Books, 1997); Richard L. Bushman, <em>Joseph Smith: Rough Stone Rolling</em> (Knopf, 2005).</span></li>
+        <li id="t1-r10"><span>Church Historian's Press, "Clarissa (Clara) Decker Young." <a href="https://www.churchhistorianspress.org/the-first-fifty-years-of-relief-society/people/clarissa-clara-decker-young" target="_blank" rel="noopener">churchhistorianspress.org</a>; Jeffery O. Johnson, "Determining and Defining 'Wife': The Brigham Young Households," <em>Dialogue</em>. <a href="https://www.dialoguejournal.com/articles/determining-and-defining-wife-the-brigham-young-households/" target="_blank" rel="noopener">dialoguejournal.com</a></span></li>
+        <li id="t1-r11"><span>Truth &amp; Transparency, "Court documents reveal Mormon bishop's failure to report led to continued abuse and an additional victim," Jan. 30, 2020. <a href="https://www.truthandtransparency.org/news/2020/01/30/court-documents-reveal-mormon-bishops-failure-to-report-led-to-continued-abuse-and-an-additional-victim/index.html" target="_blank" rel="noopener">truthandtransparency.org</a></span></li>
+        <li id="t1-r12"><span>BishopAccountability.org, "4 takeaways from AP's Mormon Church sex abuse investigation," Aug. 2022. <a href="https://www.bishop-accountability.org/2022/08/4-takeaways-from-aps-mormon-church-sex-abuse-investigation/" target="_blank" rel="noopener">bishop-accountability.org</a></span></li>
+      </ol>
+
+      <aside class="notes" id="theme-1-notes">
+        <h3>Precision notes &amp; the Church's response</h3>
+        <ul>
+          <li><strong>On terminology.</strong> No surviving source documents a sexual relationship between Joseph Smith and Helen Mar Kimball. The Church cites her description of the sealing as "for eternity alone"; Compton finds no evidence either way; Brian Hales argues it was unconsummated. What is documented is the sealing of a 14-year-old girl to a 37-year-old man.</li>
+          <li><strong>Clara Decker's age.</strong> Some sources describe her as 16. Her recorded birth (July 22, 1828) and marriage (May 8, 1844) dates make her 15, about two months short of 16.</li>
+          <li><strong>Who answered the help line.</strong> The line is normally answered by Family Services social workers, who refer serious calls to attorneys. Church lawyers have stated that Herrod's and Mauzy's calls went to Kirton McConkie.</li>
+          <li><strong>Timeline.</strong> The confession was in 2011; the New Zealand video was found in late 2016; Adams was arrested February 8, 2017.</li>
+          <li><strong>The Arizona ruling</strong> rests on both a reading of the statute and the First Amendment. A motion for reconsideration was filed in August 2026; status described here is as of October 2026.</li>
+          <li><strong>The Church's position.</strong> Its counsel said the bishops did nothing wrong and called the suit a money grab. The Church says Herrod urged the family to report and that it had no knowledge of the videos until the arrest.</li>
+        </ul>
+      </aside>
+
+      <div class="exhibit-cta">
+        <a href="learn-more.html#theme-1" class="exhibit-cta-back">← Back to Theme I summary</a>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 2 ============ -->
+  <section class="exhibit" id="theme-2">
+    <div class="folder-tab"><span class="tab-dot"></span> BRIEF II</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">02 / Financial Corruption</span>
+          <h2>A $100-Billion-Plus Question of Trust</h2>
+        </div>
+        <span class="doc-stamp">UNAUDITED</span>
+      </div>
+      <div class="brief-meta">
+        <a href="#theme-2-argument">Argument</a><a href="#theme-2-primary">Primary references</a><a href="#theme-2-secondary">Secondary references</a><a href="#theme-2-notes">Precision &amp; response</a>
+      </div>
+      <div class="prose" id="theme-2-argument">
+        <p class="lede">Members give a tenth of their income. In the United States, they cannot see where it goes.</p>
+        <p>Being a full-tithe payer is one of the temple-recommend interview questions, so tithing is a
+          condition of entering the temple — the only place the Church teaches that marriages can be sealed
+          for eternity. From 1915 to 1959 the Church read a detailed financial statement at its April
+          General Conference. As tax scholar Samuel Brunson documents, it stopped after heavy deficit
+          spending and investment losses in 1959.<sup class="cite"><a href="#t2-r4">4</a></sup> Since then
+          U.S. members have heard only a one-paragraph Auditing Department statement that funds were handled
+          properly. Where the law requires it, the Church does file accounts: its British charity is audited
+          and registered with the Charity Commission, and it files public returns in Canada and
+          Australia.<sup class="cite"><a href="#t2-r10">10</a></sup></p>
+        <p>What U.S. members know comes largely from a whistleblower and a regulator. In December 2019 David
+          Nielsen, a former portfolio manager at Ensign Peak Advisors, filed an IRS whistleblower complaint
+          alleging that the Church's investment arm held about $100 billion it rarely used for charity, and
+          that Ensign Peak money helped bail out a Church insurer (Beneficial Life) and fund the City Creek
+          Center mall — about $1.4 billion by his count — despite Church statements that City Creek was built
+          without tithing. Independent estimates have since gone far past that figure. The Widow's Mite Report,
+          as summarized by the <em>Salt Lake Tribune</em>, estimates total Church investments at about $231
+          billion and total wealth at about $321 billion at the end of 2025.<sup class="cite"><a href="#t2-r3">3</a>,<a href="#t2-r5">5</a></sup>
+          The Church's directly held U.S. stock portfolio, disclosed to the SEC, reached a high of $60.9 billion
+          in the third quarter of 2025.<sup class="cite"><a href="#t2-r7">7</a></sup></p>
+        <p>The SEC's findings are the most important evidence. On February 21, 2023, the Commission found that
+          from 1997 to 2019 Ensign Peak, with the Church's knowledge, failed to file required Forms 13F in its
+          own name, filing instead through 13 shell LLCs that misstated who controlled the investments. The
+          order says the Church feared that disclosing its portfolio — about $32 billion by 2018 — would bring
+          negative consequences, and that senior leaders approved additional shell companies in 2011 and 2015,
+          fronted by managers chosen to be hard to link to the Church. Ensign Peak paid a $4 million penalty
+          and the Church $1 million.<sup class="cite"><a href="#t2-r1">1</a></sup> <strong>A Church that
+          taught openness about tithing chose, at its highest level, to hide its size from regulators for
+          22 years.</strong></p>
+        <p>The lawsuits have not gone the members' way. James Huntsman, brother of former Utah Gov. Jon
+          Huntsman Jr., sued in 2021 to recover more than $5 million in tithing, alleging misrepresentation
+          about City Creek's funding. A Ninth Circuit panel revived the case 2–1 in 2023, but on January 31,
+          2025, an 11-judge en banc court ruled unanimously for the Church, finding that no reasonable juror
+          could conclude the Church had misrepresented the source of City Creek's money, since it had said the
+          project used earnings on invested reserves.<sup class="cite"><a href="#t2-r2">2</a>,<a href="#t2-r8">8</a></sup>
+          Five judges would also have barred the suit on church-autonomy grounds; the majority declined to go
+          that far. Abroad, a 2022 investigation by <em>The Sydney Morning Herald</em>, <em>The Age</em>,
+          <em>60 Minutes</em>, and the CBC questioned the management of Australian tax-deductible funds and the
+          transfer of more than $1 billion in Canadian tax-exempt donations to BYU campuses in the
+          U.S.<sup class="cite"><a href="#t2-r9">9</a></sup></p>
+        <p>The cost falls heavily on the young. Young men may begin missions at 18 and serve 24 months; since
+          November 21, 2025, young women may also begin at 18, serving 18 months.<sup class="cite"><a href="#t2-r11">11</a></sup>
+          U.S. and Canadian missionaries and their families pay a flat monthly amount into ward funds.
+          <strong>Meanwhile the institution holds reserves that, by independent analysis, could fund Church
+          programs indefinitely even if donations stopped.</strong><sup class="cite"><a href="#t2-r6">6</a></sup></p>
+      </div>
+
+      <h3 class="sub-head" id="theme-2-primary">Primary references</h3>
+      <ol class="refs primary" style="--start:0">
+        <li id="t2-r1"><span>U.S. Securities and Exchange Commission, press release and cease-and-desist order, "SEC Charges The Church of Jesus Christ of Latter-day Saints and Its Investment Management Company," Feb. 21, 2023. <a href="https://www.sec.gov/news/press-release/2023-35" target="_blank" rel="noopener">sec.gov</a><span class="ref-note">Establishes the 13 shell LLCs, the 1997–2019 period, the $32 billion portfolio, and the $5 million penalty.</span></span></li>
+        <li id="t2-r2"><span>U.S. Court of Appeals for the Ninth Circuit (en banc), <em>Huntsman v. Corporation of the President</em>, Jan. 31, 2025, as summarized by Americans United. <a href="https://www.au.org/how-we-protect-religious-freedom/legal-cases/cases/huntsman-v-corporation-of-the-president-of-the-church-of-jesus-christ-of-latter-day-saints/" target="_blank" rel="noopener">au.org</a><span class="ref-note">Establishes the 11–0 outcome, Nielsen's City Creek allegation, and the rejection of the broad church-autonomy defense.</span></span></li>
+        <li id="t2-r3"><span><em>Salt Lake Tribune</em>, "LDS Church's stock portfolio loses billions again. Here are the latest numbers," May 26, 2026. <a href="https://www.sltrib.com/religion/2026/05/26/lds-church-is-buying-up-stocks/" target="_blank" rel="noopener">sltrib.com</a><span class="ref-note">Establishes the latest independent estimates: about $231 billion in investments and $321 billion in total wealth, end of 2025.</span></span></li>
+      </ol>
+
+      <h3 class="sub-head" id="theme-2-secondary">Secondary references</h3>
+      <ol class="refs" style="--start:3">
+        <li id="t2-r4"><span>Samuel D. Brunson, "The Present, Past, and Future of LDS Financial Transparency," <em>Dialogue</em>. <a href="https://www.dialoguejournal.com/articles/the-present-past-and-future-of-lds-financial-transparency/" target="_blank" rel="noopener">dialoguejournal.com</a></span></li>
+        <li id="t2-r5"><span>The Widow's Mite Report, Annual Reports (2021–2025). <a href="https://thewidowsmite.org/ensignpeak/" target="_blank" rel="noopener">thewidowsmite.org</a></span></li>
+        <li id="t2-r6"><span><em>Salt Lake Tribune</em>, "LDS Church wealth: The day soon may come when the faith will not need tithing," Apr. 1, 2025. <a href="https://www.sltrib.com/religion/2025/04/01/lds-church-wealth-day-soon-may/" target="_blank" rel="noopener">sltrib.com</a></span></li>
+        <li id="t2-r7"><span><em>Salt Lake Tribune</em>, "LDS Church's stock portfolio is up by billions," Aug. 28, 2026. <a href="https://www.sltrib.com/religion/2026/08/28/lds-stock-fund-nears-record-high/" target="_blank" rel="noopener">sltrib.com</a></span></li>
+        <li id="t2-r8"><span>Becket Fund, case page, <em>Huntsman v. Corporation of the President</em>. <a href="https://becketfund.org/case/huntsman-v-corporation-of-the-president-of-the-church-of-jesus-christ-of-latter-day-saints/" target="_blank" rel="noopener">becketfund.org</a>; Deseret News, Jan. 31, 2025. <a href="https://www.deseret.com/faith/2025/01/31/huntsman-tithing-lawsuit-dismissed-9th-circuit-panel/" target="_blank" rel="noopener">deseret.com</a></span></li>
+        <li id="t2-r9"><span>Axios, "LDS Church finances are under scrutiny abroad," Nov. 2, 2022. <a href="https://www.axios.com/local/salt-lake-city/2022/11/02/mormon-finances-scrutiny-australia-canada" target="_blank" rel="noopener">axios.com</a></span></li>
+        <li id="t2-r10"><span>Charity Commission for England and Wales, The Church of Jesus Christ of Latter-day Saints (Great Britain), charity no. 242451. <a href="https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/242451/governance" target="_blank" rel="noopener">charitycommission.gov.uk</a></span></li>
+        <li id="t2-r11"><span>Deseret News, "Missionary age change: Church announces new minimum age for women," Nov. 21, 2025. <a href="https://www.deseret.com/faith/2025/11/21/missionary-age-change-for-women-sister-missionaries/" target="_blank" rel="noopener">deseret.com</a>; Church News, "First Presidency announces increase in monthly missionary contribution," June 27, 2019. <a href="https://www.thechurchnews.com/2019/6/27/23215166/first-presidency-lds-missionary-contribution/" target="_blank" rel="noopener">thechurchnews.com</a></span></li>
+        <li id="t2-r12"><span>CBS News, "Mormon church fined $5 million by SEC," Feb. 21, 2023. <a href="https://www.cbsnews.com/news/mormon-church-fined-5-million-fine-sec/" target="_blank" rel="noopener">cbsnews.com</a>; KUER, "SEC fines LDS Church," Feb. 21, 2023. <a href="https://www.kuer.org/business-economy/2023-02-21/sec-fines-lds-church" target="_blank" rel="noopener">kuer.org</a></span></li>
+      </ol>
+
+      <aside class="notes" id="theme-2-notes">
+        <h3>Precision notes &amp; the Church's response</h3>
+        <ul>
+          <li><strong>The figures.</strong> "$100 billion" was the whistleblower's 2019 figure. Third-party estimates now put investments at about $231 billion and total wealth at about $321 billion (end of 2025). The Church has never confirmed any figure; these are estimates.</li>
+          <li><strong>Missionary ages.</strong> Since November 21, 2025, women may serve at 18 for 18 months; men serve 24 months from 18. Missions are optional for women and an expected priesthood duty for men.</li>
+          <li><strong>Monthly cost.</strong> A 2019 announcement raised the contribution from $400 to $500 effective July 2020; secondary sources report it was postponed. Local ward guidance is the authority on the current amount.</li>
+          <li><strong>The SEC case was a settlement.</strong> The Church and Ensign Peak neither admitted nor denied the findings. The Church says all securities were reported, through separate filers, for confidentiality.</li>
+          <li><strong>Huntsman.</strong> The court found the Church's statements about City Creek truthful; the case is not a finding of fraud.</li>
+          <li><strong>"Since 1959" applies to the United States.</strong> Mandatory disclosures exist in the UK, Canada, and Australia.</li>
+          <li><strong>The Church's position.</strong> It describes tithing as sacred and its reserves as a prudent "rainy day" fund for the Church's future mission.</li>
+        </ul>
+      </aside>
+
+      <div class="exhibit-cta">
+        <a href="learn-more.html#theme-2" class="exhibit-cta-back">← Back to Theme II summary</a>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 3 ============ -->
+  <section class="exhibit" id="theme-3">
+    <div class="folder-tab"><span class="tab-dot"></span> BRIEF III</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">03 / Chauvinism</span>
+          <h2>A Patriarchy by Design</h2>
+        </div>
+        <span class="doc-stamp">MALE-ONLY</span>
+      </div>
+      <div class="brief-meta">
+        <a href="#theme-3-argument">Argument</a><a href="#theme-3-primary">Primary references</a><a href="#theme-3-secondary">Secondary references</a><a href="#theme-3-notes">Precision &amp; response</a>
+      </div>
+      <div class="prose" id="theme-3-argument">
+        <p class="lede">The Church's governing structure is male by rule, not by chance.</p>
+        <p>Every presiding office — President of the Church, apostle, Seventy, stake president, bishop — is
+          held only by ordained men, and women cannot be ordained to the priesthood. The Relief Society,
+          founded in Nauvoo in 1842, is one of the largest women's organizations in the world, and women lead
+          it and the Young Women and Primary organizations. But they serve under priesthood keys held by men.
+          A bishop, not a woman, conducts the worthiness interviews of girls and women, hears their
+          confessions, and holds membership councils about them.</p>
+        <p>Until recently, the hierarchy was written into the Church's most sacred ritual. Under the 1990
+          revision of the temple endowment, women covenanted to hearken to the counsel of their husbands while
+          husbands covenanted directly with God — itself a softening of an earlier promise to obey the law of
+          the husband. In January 2019 the Church removed the hearken language, gave Eve more speaking lines,
+          and ended the veiling of women's faces; men and women now make the same covenants.<sup class="cite"><a href="#t3-r1">1</a>,<a href="#t3-r4">4</a></sup>
+          Faithful Latter-day Saint feminists welcomed the change. <strong>It also confirms what critics had
+          long said: for nearly thirty years, the temple taught women to reach God through their
+          husbands.</strong> Further revisions followed in 2023, and commentators still point to gendered
+          wording in the sealing ceremony.<sup class="cite"><a href="#t3-r5">5</a></sup></p>
+        <p>The Church has disciplined those who pressed these questions publicly. Kate Kelly, a human-rights
+          lawyer, founded Ordain Women in 2013. On June 23, 2014, her Virginia ward's disciplinary council
+          excommunicated her in absentia for conduct contrary to the laws and order of the Church; her bishop
+          wrote that she was not entitled to promote her views or recruit others to them.<sup class="cite"><a href="#t3-r2">2</a>,<a href="#t3-r8">8</a></sup>
+          In 2015 the Church published an essay affirming a divine Mother in Heaven, while stating that no
+          revelation on the subject has been recorded and not authorizing prayer to her.<sup class="cite"><a href="#t3-r9">9</a></sup></p>
+        <p>The same structure governs children. For decades, bishops — untrained lay men — interviewed boys and
+          girls from about age 12, alone and behind closed doors, about worthiness, including questions about
+          masturbation and sexual behavior. Former bishop Sam Young launched Protect LDS Children in 2018,
+          gathered thousands of accounts of harm, led hundreds of people to Church headquarters to deliver
+          them, and staged a 23-day hunger strike under the demand "No one-on-one
+          interviews."<sup class="cite"><a href="#t3-r6">6</a></sup> In 2018 the Church updated its
+          guidelines to allow a parent or another adult to be present; Young called this inadequate. On
+          September 16, 2018, he announced that a Houston disciplinary council had excommunicated him for
+          conduct contrary to the laws and order of the Church; his appeal was rejected that
+          November.<sup class="cite"><a href="#t3-r3">3</a>,<a href="#t3-r7">7</a></sup> The Church revised
+          youth-interview guidance and temple-recommend questions again in 2019. <strong>Two reformers were
+          expelled, and parts of their reforms were then adopted — a pattern that shows how dissent is
+          treated when it comes from outside the male line of authority.</strong></p>
+        <p>The evidence suggests this matters to members. Jana Riess's research, including a 2026 analysis
+          titled "Put on a pedestal, kept out of power," cites Pew data showing retention of those raised in
+          the Church falling from 70% (2007) to 64% (2014) to 54% in Pew's most recent study, and her survey
+          found that 21% of former members named the role of women as a reason for leaving.<sup class="cite"><a href="#t3-r10">10</a>,<a href="#t3-r11">11</a></sup>
+          The pattern is consistent: change comes slowly, from the top, after outside pressure. Women can be
+          consulted. They cannot preside.</p>
+      </div>
+
+      <h3 class="sub-head" id="theme-3-primary">Primary references</h3>
+      <ol class="refs primary" style="--start:0">
+        <li id="t3-r1"><span>Peggy Fletcher Stack and David Noyce, "LDS Church changes temple ceremony; faithful feminists will see revisions," <em>Salt Lake Tribune</em>, Jan. 2, 2019 (archived summary). <a href="https://bhroberts.org/records/yXnsPd-bYLTPj/the_salt_lake_tribune_reports_on_changes_to_the_temple_endowment_in_2019" target="_blank" rel="noopener">bhroberts.org</a><span class="ref-note">Establishes that women no longer covenant to hearken to their husbands.</span></span></li>
+        <li id="t3-r2"><span>ABC News, "Mormon church excommunicates Kate Kelly," June 23, 2014. <a href="https://abcnews.com/US/mormon-church-excommunicates-kate-kelly-womens-rights-activists/story?id=24264440" target="_blank" rel="noopener">abcnews.com</a><span class="ref-note">Establishes the date, the grounds, and the bishop's stated rationale.</span></span></li>
+        <li id="t3-r3"><span>KUER, "Former Bishop Excommunicated From Mormon Church For Protesting Youth Interviews," Sept. 16, 2018. <a href="https://www.kuer.org/religion/2018-09-16/former-bishop-excommunicated-from-mormon-church-for-protesting-youth-interviews" target="_blank" rel="noopener">kuer.org</a><span class="ref-note">Establishes Sam Young's excommunication and the stated charge.</span></span></li>
+      </ol>
+
+      <h3 class="sub-head" id="theme-3-secondary">Secondary references</h3>
+      <ol class="refs" style="--start:3">
+        <li id="t3-r4"><span>Jana Riess, "Major changes to Mormon temple ceremony, especially for women," Religion News Service, Jan. 3, 2019. <a href="https://religionnews.com/2019/01/03/lds-church-changes-temple-ceremony-gives-eve-a-bigger-role/" target="_blank" rel="noopener">religionnews.com</a></span></li>
+        <li id="t3-r5"><span>Jana Riess, "More Jesus, less touching: 14 changes to the Mormon temple endowment ceremony," RNS, Feb. 10, 2023. <a href="https://religionnews.com/2023/02/10/more-jesus-less-touching-14-changes-to-the-mormon-temple-endowment-ceremony/" target="_blank" rel="noopener">religionnews.com</a></span></li>
+        <li id="t3-r6"><span>CNN, "Why a former Mormon bishop was excommunicated for criticizing sexually explicit youth interviews," Sept. 24, 2018. <a href="https://www.cnn.com/2018/09/24/us/mormon-young-excommunicated" target="_blank" rel="noopener">cnn.com</a></span></li>
+        <li id="t3-r7"><span><em>Salt Lake Tribune</em>, "Former Mormon bishop Sam Young loses his appeal," Nov. 12, 2018. <a href="https://www.sltrib.com/religion/2018/11/12/former-mormon-bishop-sam/" target="_blank" rel="noopener">sltrib.com</a></span></li>
+        <li id="t3-r8"><span>UPR, "Founder of Ordain Women Excommunicated," June 23, 2014. <a href="https://www.upr.org/utah-news/2014-06-23/founder-of-ordain-women-excommunicated" target="_blank" rel="noopener">upr.org</a>; TIME. <a href="https://time.com/2913364/kate-kelly-mormon-excommunicated/" target="_blank" rel="noopener">time.com</a></span></li>
+        <li id="t3-r9"><span>The Church of Jesus Christ of Latter-day Saints, "Mother in Heaven," Gospel Topics Essays (2015). <a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/mother-in-heaven" target="_blank" rel="noopener">churchofjesuschrist.org</a></span></li>
+        <li id="t3-r10"><span>Jana Riess, "Put on a pedestal, kept out of power: How the LDS Church is losing women," RNS, Aug. 13, 2026. <a href="https://religionnews.com/2026/08/13/put-on-a-pedestal-kept-out-of-power-how-the-lds-church-is-losing-women/" target="_blank" rel="noopener">religionnews.com</a></span></li>
+        <li id="t3-r11"><span>Jana Riess, <em>The Next Mormons: How Millennials Are Changing the LDS Church</em> (Oxford University Press, 2019).</span></li>
+        <li id="t3-r12"><span>Deseret News, "Sam Young announces he was excommunicated by local church leaders," Sept. 16, 2018. <a href="https://www.deseret.com/2018/9/16/20653668/sam-young-announces-he-was-excommunicated-by-local-church-leaders/" target="_blank" rel="noopener">deseret.com</a>; Newsweek. <a href="https://www.newsweek.com/mormon-bishop-sam-young-excommunicated-wanting-stop-sexually-explicit-1123414" target="_blank" rel="noopener">newsweek.com</a></span></li>
+        <li id="t3-r13"><span>Religion News Service, "Another Mormon excommunication, 25 years after the September Six," Sept. 18, 2018. <a href="https://religionnews.com/2018/09/18/another-mormon-excommunication-25-years-after-the-september-six/" target="_blank" rel="noopener">religionnews.com</a></span></li>
+      </ol>
+
+      <aside class="notes" id="theme-3-notes">
+        <h3>Precision notes &amp; the Church's response</h3>
+        <ul>
+          <li><strong>The wording changed over time.</strong> Before 1990, women covenanted to obey the law of their husbands; from 1990 to 2018, to hearken unto their husbands' counsel. Both forms were removed in January 2019.</li>
+          <li><strong>Interview reforms.</strong> The 2018 guidelines allowed a parent or another adult to be present; they did not end one-on-one interviews or every sensitive question. Current guidance is in the Church's General Handbook.</li>
+          <li><strong>Excommunication grounds.</strong> Both Kelly and Young were disciplined for "conduct contrary to the laws and order of the Church" (Kelly's original charge was apostasy). The Church says discipline was for organizing public campaigns against it, not for holding opinions.</li>
+          <li><strong>Recent changes.</strong> Since 2019 women may serve as witnesses to baptisms and sealings; since 2025 they may begin missions at 18.</li>
+          <li><strong>The Church's position.</strong> Leaders teach that men and women are equal partners with different roles, and that priesthood power — though not priesthood office — is available to women through temple covenants.</li>
+        </ul>
+      </aside>
+
+      <div class="exhibit-cta">
+        <a href="learn-more.html#theme-3" class="exhibit-cta-back">← Back to Theme III summary</a>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 4 ============ -->
+  <section class="exhibit" id="theme-4">
+    <div class="folder-tab"><span class="tab-dot"></span> BRIEF IV</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">04 / Psychological Warfare</span>
+          <h2>The Architecture of Persuasion</h2>
+        </div>
+        <span class="doc-stamp">BY DESIGN</span>
+      </div>
+      <div class="brief-meta">
+        <a href="#theme-4-argument">Argument</a><a href="#theme-4-primary">Primary references</a><a href="#theme-4-secondary">Secondary references</a><a href="#theme-4-notes">Precision &amp; response</a>
+      </div>
+      <div class="prose" id="theme-4-argument">
+        <p class="lede">Every church persuades. This one codifies the method.</p>
+        <p><em>Preach My Gospel</em>, the missionary manual first issued in 2004 and revised in 2023, trains
+          18- and 19-year-old missionaries to extend specific invitations to investigators — read the Book of
+          Mormon, pray about it, attend church, keep commandments, set a baptismal date — to attach a promised
+          blessing to each, and to follow up on every one.<sup class="cite"><a href="#t4-r2">2</a></sup>
+          Critics call this the commitment pattern. Its structure, a sequence of small, public commitments
+          escalating toward baptism, matches the consistency-based persuasion long described in social
+          psychology.<sup class="cite"><a href="#t4-r11">11</a></sup></p>
+        <p>The test of truth missionaries teach is emotional rather than evidential. Moroni 10:4–5 promises that
+          a sincere person who prays will learn the Book of Mormon's truth by the power of the Holy Ghost;
+          Church teaching often describes that witness in the "burning in the bosom" language of D&amp;C 9:8.
+          Investigators learn to treat a warm, peaceful feeling as confirmation — and to treat later doubts as
+          spiritual danger rather than new information.</p>
+        <p>Apostle Boyd K. Packer stated the method plainly. In "The Candle of the Lord," a June 25, 1982
+          address to new mission presidents published in the <em>Ensign</em> in January 1983, he taught:
+          "A testimony is to be found in the bearing of it!" Answering missionaries who worried that
+          testifying without a testimony would be dishonest, he urged them to step into the darkness and speak
+          first.<sup class="cite"><a href="#t4-r1">1</a></sup> Apostles David A. Bednar and Dallin H. Oaks
+          have repeated the idea that testimonies are gained in the act of bearing them.<sup class="cite"><a href="#t4-r6">6</a>,<a href="#t4-r7">7</a></sup></p>
+        <p>Leaving carries steep costs. Members who resign or are disciplined lose temple access, which until
+          2019 also determined who could watch a family wedding. Mixed-faith families, mission companions, ward
+          networks — and in Utah, often employers and neighbors — are woven into a single community. Leaders
+          have long warned members away from critical material, keeping doubters from the information that
+          might resolve their questions. Critics, many of them former members, apply cult researcher Steven
+          Hassan's BITE model — Behavior, Information, Thought, and Emotional control — to these
+          practices.<sup class="cite"><a href="#t4-r9">9</a></sup></p>
+        <p>The Church has acknowledged that its own narrative needed correcting. Between 2013 and 2015 it
+          published Gospel Topics essays conceding Joseph Smith's polyandry, his use of a seer stone in a hat
+          to translate, multiple First Vision accounts, and the racist roots of the priesthood ban. Many
+          members first learned these facts from the essays, often years after baptism, and former members
+          interviewed by Riess ranked doubts about Church history among their top reasons for
+          leaving.<sup class="cite"><a href="#t4-r4">4</a></sup></p>
+        <p>Retention is falling. Pew found that 70% of those raised Latter-day Saint still identified with the
+          Church as adults in 2007, 64% in 2014, and 54% in its latest study; the General Social Survey puts
+          millennial retention at 46%.<sup class="cite"><a href="#t4-r3">3</a>,<a href="#t4-r5">5</a></sup>
+          <strong>The evidence suggests that persuasion designed to produce commitment before full information
+          works well enough to baptize people — and that many of them leave once they learn more.</strong></p>
+      </div>
+
+      <h3 class="sub-head" id="theme-4-primary">Primary references</h3>
+      <ol class="refs primary" style="--start:0">
+        <li id="t4-r1"><span>Boyd K. Packer, "The Candle of the Lord," <em>Ensign</em>, Jan. 1983, 51–55 (address to new mission presidents, June 25, 1982); quoted on the Church's own site in <em>New Era</em>, Oct. 2017. <a href="https://www.churchofjesuschrist.org/study/new-era/2017/10/questions-answers-strengthen-my-testimony?lang=eng" target="_blank" rel="noopener">churchofjesuschrist.org</a><span class="ref-note">Establishes the "found in the bearing of it" teaching from an apostle.</span></span></li>
+        <li id="t4-r2"><span>The Church of Jesus Christ of Latter-day Saints, <em>Preach My Gospel: A Guide to Sharing the Gospel of Jesus Christ</em> (2004; rev. 2023), and Moroni 10:4–5. <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/10" target="_blank" rel="noopener">churchofjesuschrist.org</a><span class="ref-note">Establishes the official invitation-and-follow-up method and the prayer-and-feeling test of truth.</span></span></li>
+        <li id="t4-r3"><span>Jana Riess, "How many Millennials are really leaving the LDS Church?," Religion News Service, Mar. 27, 2019. <a href="https://religionnews.com/2019/03/27/how-many-millennials-are-really-leaving-the-lds-church/" target="_blank" rel="noopener">religionnews.com</a><span class="ref-note">Establishes Pew (70% to 64%) and GSS (46%) retention data.</span></span></li>
+      </ol>
+
+      <h3 class="sub-head" id="theme-4-secondary">Secondary references</h3>
+      <ol class="refs" style="--start:3">
+        <li id="t4-r4"><span>Jana Riess, <em>The Next Mormons: How Millennials Are Changing the LDS Church</em> (Oxford University Press, 2019).</span></li>
+        <li id="t4-r5"><span>Jana Riess, "Put on a pedestal, kept out of power," RNS, Aug. 13, 2026. <a href="https://religionnews.com/2026/08/13/put-on-a-pedestal-kept-out-of-power-how-the-lds-church-is-losing-women/" target="_blank" rel="noopener">religionnews.com</a></span></li>
+        <li id="t4-r6"><span>David A. Bednar, "Seek Learning by Faith," <em>Ensign</em>, Sept. 2007. <a href="https://www.churchofjesuschrist.org/study/ensign/2007/09/seek-learning-by-faith?lang=eng" target="_blank" rel="noopener">churchofjesuschrist.org</a></span></li>
+        <li id="t4-r7"><span>Dallin H. Oaks, "Testimony," General Conference, Apr. 2008.</span></li>
+        <li id="t4-r8"><span>FAIR, "Did Elder Boyd K. Packer suggest that we should 'lie our way' into obtaining a testimony?" (apologetic response). <a href="https://www.fairlatterdaysaints.org/answers/Question:_Did_Elder_Boyd_K._Packer_suggest_that_we_should_%22lie_our_way%22_into_obtaining_a_testimony%3F" target="_blank" rel="noopener">fairlatterdaysaints.org</a></span></li>
+        <li id="t4-r9"><span>Steven Hassan, <em>Combating Cult Mind Control</em> (rev. ed. 2015) and <em>Freedom of Mind</em> (BITE model).</span></li>
+        <li id="t4-r10"><span>Survey Center on American Life (AEI), "Most Churches are Losing Members Fast — But Not the Mormons." <a href="https://www.americansurveycenter.org/commentary/most-churches-are-losing-members-fast-but-not-the-mormons-heres-why/" target="_blank" rel="noopener">americansurveycenter.org</a></span></li>
+        <li id="t4-r11"><span>Robert B. Cialdini, <em>Influence: The Psychology of Persuasion</em> (commitment-and-consistency principle).</span></li>
+      </ol>
+
+      <aside class="notes" id="theme-4-notes">
+        <h3>Precision notes &amp; the Church's response</h3>
+        <ul>
+          <li><strong>Frameworks, not findings.</strong> "High-demand group" and the BITE model are critics' frameworks. Many sociologists of religion reject brainwashing models, and the American Psychological Association declined to endorse the 1987 task-force report on coercive persuasion.</li>
+          <li><strong>Packer's talk</strong> was delivered June 25, 1982 and published in the <em>Ensign</em> in January 1983.</li>
+          <li><strong>Retention in context.</strong> Latter-day Saint retention (54–64% by Pew) remains at or above that of many U.S. denominations, as the AEI analysis notes. The concern here is the trend and the stated reasons for leaving.</li>
+          <li><strong>The Church's position.</strong> Its teaching also calls for study alongside prayer, and apologists argue Packer was describing faith that precedes evidence, not dishonesty. Current Church messaging emphasizes seeking truth and links directly to the Gospel Topics essays.</li>
+        </ul>
+      </aside>
+
+      <div class="exhibit-cta">
+        <a href="learn-more.html#theme-4" class="exhibit-cta-back">← Back to Theme IV summary</a>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 5 ============ -->
+  <section class="exhibit" id="theme-5">
+    <div class="folder-tab"><span class="tab-dot"></span> BRIEF V</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">05 / Racism</span>
+          <h2>The Ban and the Folklore</h2>
+        </div>
+        <span class="doc-stamp">1852–1978</span>
+      </div>
+      <div class="brief-meta">
+        <a href="#theme-5-argument">Argument</a><a href="#theme-5-primary">Primary references</a><a href="#theme-5-secondary">Secondary references</a><a href="#theme-5-notes">Precision &amp; response</a>
+      </div>
+      <div class="prose" id="theme-5-argument">
+        <p class="lede">For 126 years, the Church barred men of Black African descent from the priesthood — and Black members from the temple.</p>
+        <p>The restriction was not there from the start. Elijah Abel, a Black convert, was ordained an elder in
+          1836 and later a Seventy with Joseph Smith's approval; Q. Walker Lewis was ordained an elder in the
+          1840s. The Church's own 2013 essay "Race and the Priesthood" acknowledges this, and states that in
+          1852 Brigham Young publicly announced that men of Black African descent could no longer be
+          ordained.<sup class="cite"><a href="#t5-r1">1</a></sup> <strong>The ban was a decision made by a
+          leader, not a doctrine revealed from the beginning.</strong></p>
+        <p>Leaders then built justifications on top of it. Brigham Young tied the ban to the curse of Cain;
+          later leaders added that Black people had been less valiant in a premortal life. On August 17, 1949,
+          the First Presidency declared the restriction a direct commandment from the Lord rather than a
+          policy.<sup class="cite"><a href="#t5-r6">6</a></sup> In 1954 Apostle Mark E. Petersen defended
+          segregation before BYU religion teachers, asking who man was to change a segregation the Lord had
+          made.<sup class="cite"><a href="#t5-r7">7</a></sup> Bruce R. McConkie's widely used <em>Mormon
+          Doctrine</em> (1958) taught that Black people were ineligible because of premortal
+          conduct.<sup class="cite"><a href="#t5-r8">8</a></sup> The First Presidency reaffirmed the ban in
+          1969, at the height of the civil-rights movement.</p>
+        <p>Pressure mounted as the Church's reputation suffered. In 1968 the UTEP track team protested BYU; in
+          October 1969 Wyoming's "Black 14" were dismissed from their football team for planning to wear
+          armbands against BYU; in November 1969 Stanford announced it would schedule no new contests with BYU,
+          and in 1970 the University of Washington moved to cut ties.<sup class="cite"><a href="#t5-r9">9</a></sup>
+          In Brazil, where ancestry is often mixed and hard to trace, the Church was building the São Paulo
+          temple, announced in 1975. On June 8, 1978, President Spencer W. Kimball announced the revelation now
+          canonized as Official Declaration 2, extending the priesthood to all worthy male members without
+          regard to race or color.<sup class="cite"><a href="#t5-r2">2</a></sup> Months later, McConkie told
+          religion teachers to forget whatever he had said that conflicted with the new revelation.</p>
+        <p>The Church never apologized. In December 2013 its essay disavowed "the theories advanced in the past"
+          that Black skin signaled divine disfavor or premortal unrighteousness, that mixed-race marriage was
+          sinful, or that any race was inferior.<sup class="cite"><a href="#t5-r1">1</a></sup> It does not name
+          Young, the 1949 First Presidency, Petersen, or McConkie, and it does not call the ban itself an error.
+          Historian Lester Bush's 1973 <em>Dialogue</em> article first traced the ban's documentary origins to
+          Brigham Young's era, and is widely credited with preparing leaders for the 1978
+          change.<sup class="cite"><a href="#t5-r3">3</a></sup> W. Paul Reeve's <em>Religion of a Different
+          Color</em> shows how the ban grew out of nineteenth-century efforts to make Latter-day Saints appear
+          white.<sup class="cite"><a href="#t5-r4">4</a></sup></p>
+        <p>The Church has since pursued reconciliation. Its leaders met NAACP leadership in May 2018, and in June
+          2021 announced $2 million a year in humanitarian aid and $1 million a year in UNCF-administered
+          scholarships, each for three years, plus a fellowship named for the Rev. Amos C.
+          Brown.<sup class="cite"><a href="#t5-r10">10</a>,<a href="#t5-r11">11</a></sup> These are real
+          steps. <strong>But they sit beside a record in which the Church's highest councils called a racial
+          exclusion God's command for more than a century — and whose official repudiation still blames
+          unnamed "theories" rather than the prophets who taught them.</strong></p>
+      </div>
+
+      <h3 class="sub-head" id="theme-5-primary">Primary references</h3>
+      <ol class="refs primary" style="--start:0">
+        <li id="t5-r1"><span>The Church of Jesus Christ of Latter-day Saints, "Race and the Priesthood," Gospel Topics Essays (Dec. 2013). <a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/race-and-the-priesthood" target="_blank" rel="noopener">churchofjesuschrist.org</a><span class="ref-note">Establishes the 1852 origin, Elijah Abel's ordination, and the disavowal language.</span></span></li>
+        <li id="t5-r2"><span>Official Declaration 2 (June 8, 1978), Doctrine and Covenants. <a href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/od/2" target="_blank" rel="noopener">churchofjesuschrist.org</a><span class="ref-note">Establishes the end of the restriction in canonized form.</span></span></li>
+        <li id="t5-r3"><span>Lester E. Bush Jr., "Mormonism's Negro Doctrine: An Historical Overview," <em>Dialogue: A Journal of Mormon Thought</em> 8, no. 1 (1973). <a href="https://www.dialoguejournal.com" target="_blank" rel="noopener">dialoguejournal.com</a><span class="ref-note">The foundational scholarly reconstruction of how the ban arose.</span></span></li>
+      </ol>
+
+      <h3 class="sub-head" id="theme-5-secondary">Secondary references</h3>
+      <ol class="refs" style="--start:3">
+        <li id="t5-r4"><span>W. Paul Reeve, <em>Religion of a Different Color: Race and the Mormon Struggle for Whiteness</em> (Oxford University Press, 2015); interview, "Discussing Difficult Topics: Race and the Priesthood," <em>Religious Educator</em> 17, no. 3 (2016). <a href="https://rsc.byu.edu/vol-17-no-3-2016/discussing-difficult-topics-race-priesthood" target="_blank" rel="noopener">rsc.byu.edu</a></span></li>
+        <li id="t5-r5"><span>Newell G. Bringhurst and Matthew L. Harris, <em>The Mormon Church and Blacks: A Documentary History</em> (University of Illinois Press, 2015).</span></li>
+        <li id="t5-r6"><span>First Presidency statements of Aug. 17, 1949 and Dec. 15, 1969 (reproduced in Bringhurst and Harris).</span></li>
+        <li id="t5-r7"><span>Mark E. Petersen, "Race Problems — As They Affect the Church," address to the Convention of Teachers of Religion on the College Level, BYU, Aug. 27, 1954.</span></li>
+        <li id="t5-r8"><span>Bruce R. McConkie, <em>Mormon Doctrine</em> (Bookcraft, 1958), and "All Are Alike unto God," CES address, Aug. 18, 1978.</span></li>
+        <li id="t5-r9"><span>University of Washington Civil Rights and Labor History Project, "The BSU and the BYU Protests." <a href="https://depts.washington.edu/civilr/BSU_BYU.shtml" target="_blank" rel="noopener">washington.edu</a>; BlackPast, "Wyoming Black Fourteen (1969)." <a href="https://blackpast.org/african-american-history/wyoming-black-fourteen-1969/" target="_blank" rel="noopener">blackpast.org</a></span></li>
+        <li id="t5-r10"><span>Church Newsroom, "First Presidency and NAACP Leaders Call for Greater Civility, Racial Harmony," May 17, 2018. <a href="https://newsroom.churchofjesuschrist.org/article/joint-statement-first-presidency-naacp-national-leadership" target="_blank" rel="noopener">newsroom.churchofjesuschrist.org</a></span></li>
+        <li id="t5-r11"><span>Church Newsroom, "First Presidency and NAACP Announce Joint Initiatives," June 14, 2021. <a href="https://newsroom.churchofjesuschrist.org/article/first-presidency-naacp-shared-vision" target="_blank" rel="noopener">newsroom.churchofjesuschrist.org</a>; Church News Juneteenth update, June 20, 2022. <a href="https://www.thechurchnews.com/2022/6/20/23218667/juneteenth-update-lds-church-naacp-joint-education-humanitarian-initiatives" target="_blank" rel="noopener">thechurchnews.com</a></span></li>
+        <li id="t5-r12"><span>Wikipedia, "Elijah Abel" and "Timeline of Black LDS history" (for orientation; see primary sources cited therein). <a href="https://en.wikipedia.org/wiki/Elijah_Abel" target="_blank" rel="noopener">wikipedia.org</a></span></li>
+      </ol>
+
+      <aside class="notes" id="theme-5-notes">
+        <h3>Precision notes &amp; the Church's response</h3>
+        <ul>
+          <li><strong>Scope of the ban.</strong> Black members could be baptized and confirmed. They were barred from priesthood ordination (men) and from the endowment and sealing (men and women), though some proxy baptisms were permitted.</li>
+          <li><strong>Who was covered.</strong> The ban applied to men of Black African descent; a 1907 rule applied it to anyone with known African ancestry. Pacific Islanders and other groups were not covered.</li>
+          <li><strong>Dates.</strong> The campus protests ran 1968–1970. The São Paulo temple was announced in 1975 and dedicated October 30, 1978; historians debate how much Brazil shaped the timing.</li>
+          <li><strong>The disavowal</strong> repudiates the theories, not the ban itself, and names no leaders.</li>
+          <li><strong>The Church's position.</strong> The essay condemns all racism, past and present. Leaders point to the 1978 revelation, the NAACP partnership, and rapid growth in Africa as evidence of change.</li>
+        </ul>
+      </aside>
+
+      <div class="exhibit-cta">
+        <a href="learn-more.html#theme-5" class="exhibit-cta-back">← Back to Theme V summary</a>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEF 6 ============ -->
+  <section class="exhibit" id="theme-6">
+    <div class="folder-tab"><span class="tab-dot"></span> BRIEF VI</div>
+    <div class="panel">
+      <div class="exhibit-head">
+        <div class="exhibit-head-text">
+          <span class="exhibit-kicker">06 / Arrogance</span>
+          <h2>The Doctrine of Exclusivity</h2>
+        </div>
+        <span class="doc-stamp">MEMBERS ONLY</span>
+      </div>
+      <div class="brief-meta">
+        <a href="#theme-6-argument">Argument</a><a href="#theme-6-primary">Primary references</a><a href="#theme-6-secondary">Secondary references</a><a href="#theme-6-notes">Precision &amp; response</a>
+      </div>
+      <div class="prose" id="theme-6-argument">
+        <p class="lede">The Church's founding scripture claims sole legitimacy — and that claim reaches into every family, living and dead.</p>
+        <p>Doctrine and Covenants 1:30, an 1831 revelation that prefaces the book, calls it "the only true and
+          living church upon the face of the whole earth."<sup class="cite"><a href="#t6-r1">1</a></sup> This is
+          current teaching, repeated by missionaries and in monthly testimony meetings. In Joseph Smith's 1838
+          account of the First Vision, Christ says of other churches that they were all wrong and their creeds
+          an abomination.<sup class="cite"><a href="#t6-r9">9</a></sup> By the Church's own scripture, every
+          other Christian tradition lacks authority to perform valid saving ordinances.</p>
+        <p>The doctrine lands directly on families. D&amp;C 131:1–4 teaches that the highest degree of the
+          celestial kingdom requires the new and everlasting covenant of marriage, and D&amp;C 132 teaches that
+          marriages not sealed by that authority end at death. A loving marriage in any other church, or a civil
+          one, is therefore taught to be temporary. Only members with a current temple recommend may enter a
+          temple — so for generations, non-member parents, less-active siblings, and members who had not paid
+          full tithing waited in the lobby while their children married.</p>
+        <p>The Church added a penalty to that exclusion. Until 2019, in the United States and many other
+          countries, a couple who married civilly first — often so excluded relatives could attend — had to wait
+          a year before being sealed. On May 6, 2019, the First Presidency ended the waiting period, saying it
+          would let families come together in love and unity under a single global
+          standard.<sup class="cite"><a href="#t6-r2">2</a>,<a href="#t6-r4">4</a></sup> <strong>The change
+          shows the Church understood the pain it caused. Couples nonetheless spent decades choosing between
+          including their parents and being sealed.</strong></p>
+        <p>Exclusivity extends to the dead. Latter-day Saints perform proxy baptisms so the deceased may accept
+          the gospel in the afterlife. After Jewish organizations objected to the baptism of Holocaust victims,
+          the Church agreed in 1995 to remove their names unless they were direct ancestors of living members.
+          The practice continued. A renewed 2010 agreement added computer screening. In February 2012,
+          researcher Helen Radkey documented the proxy baptism of Nazi hunter Simon Wiesenthal's parents; Anne
+          Frank was baptized by proxy again in the Dominican Republic, and journalist Daniel Pearl was also
+          baptized.<sup class="cite"><a href="#t6-r5">5</a>,<a href="#t6-r6">6</a>,<a href="#t6-r7">7</a></sup>
+          The Church apologized and suspended the submitter's access, and on March 2, 2012 the First Presidency
+          told members that, without exception, they must not submit the names of celebrities or Jewish
+          Holocaust victims.<sup class="cite"><a href="#t6-r3">3</a>,<a href="#t6-r8">8</a></sup> The Simon
+          Wiesenthal Center said the incidents made a mockery of years of meetings.</p>
+        <p>The Church presents these teachings as an offer, not an imposition: proxy ordinances may be accepted
+          or rejected by the deceased, and its claim to unique authority, it says, is compatible with respect for
+          others. <strong>But a theology that calls other churches' creeds an abomination, marriages outside the
+          temple temporary, and the dead in need of its rites will be experienced as arrogant by many outside it
+          — and the repeated proxy baptisms of Holocaust victims, after promises made in 1995 and 2010, show the
+          limits of the Church's ability or willingness to police that impulse.</strong></p>
+      </div>
+
+      <h3 class="sub-head" id="theme-6-primary">Primary references</h3>
+      <ol class="refs primary" style="--start:0">
+        <li id="t6-r1"><span>Doctrine and Covenants 1:30; 131:1–4; 132. <a href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/1?lang=eng" target="_blank" rel="noopener">churchofjesuschrist.org</a><span class="ref-note">Establishes the "only true and living church" claim and the doctrine that only temple marriage is eternal.</span></span></li>
+        <li id="t6-r2"><span>Church Newsroom, "Couples Married Civilly Now Authorized for Immediate Temple Marriage," May 6, 2019. <a href="https://newsroom.churchofjesuschrist.org/article/couples-married-civilly-authorized-for-immediate-temple-marriage" target="_blank" rel="noopener">newsroom.churchofjesuschrist.org</a><span class="ref-note">Establishes the end of the one-year waiting period and the Church's stated reasons.</span></span></li>
+        <li id="t6-r3"><span>Religion News Service, "Mormons warned against baptizing Holocaust victims, celebrities," Mar. 5, 2012. <a href="https://religionnews.com/2012/03/05/mormons-warned-against-baptizing-holocaust-victims/" target="_blank" rel="noopener">religionnews.com</a><span class="ref-note">Establishes the 2012 incidents, the 2010 assurances, and the March 2, 2012 First Presidency directive.</span></span></li>
+      </ol>
+
+      <h3 class="sub-head" id="theme-6-secondary">Secondary references</h3>
+      <ol class="refs" style="--start:3">
+        <li id="t6-r4"><span><em>Salt Lake Tribune</em>, "LDS Church changes policy" (one-year wait), May 6, 2019. <a href="https://www.sltrib.com/news/2019/05/06/lds-church-changes-policy/" target="_blank" rel="noopener">sltrib.com</a></span></li>
+        <li id="t6-r5"><span>Deseret News, "Mormon Church apologizes for Jewish baptisms for the dead," Feb. 15, 2012. <a href="https://www.deseret.com/2012/2/15/20393239/mormon-church-apologizes-for-jewish-baptisms-for-the-dead/" target="_blank" rel="noopener">deseret.com</a></span></li>
+        <li id="t6-r6"><span>JTA / St. Louis Jewish Light, "Anne Frank baptized in Mormon proxy ritual," Feb. 22, 2012. <a href="https://stljewishlight.org/world-news/anne-frank-baptized-in-mormon-proxy-ritual/" target="_blank" rel="noopener">stljewishlight.org</a></span></li>
+        <li id="t6-r7"><span>HuffPost, "Mormon Baptism Targets Anne Frank — Again," Feb. 21, 2012. <a href="https://www.huffpost.com/entry/mormons-posthumous-baptism-anne-frank_n_1292102" target="_blank" rel="noopener">huffpost.com</a></span></li>
+        <li id="t6-r8"><span>World Jewish Congress, "Mormon church leaders try to rein in proxy baptism of Holocaust victims," Mar. 9, 2012. <a href="https://www.worldjewishcongress.org/en/news/mormon-church-leaders-try-to-rein-in-proxy-baptism-of-holocaust-victims" target="_blank" rel="noopener">worldjewishcongress.org</a></span></li>
+        <li id="t6-r9"><span>Joseph Smith—History 1:19, Pearl of Great Price. <a href="https://www.churchofjesuschrist.org/study/scriptures/pgp/js-h/1" target="_blank" rel="noopener">churchofjesuschrist.org</a></span></li>
+      </ol>
+
+      <aside class="notes" id="theme-6-notes">
+        <h3>Precision notes &amp; the Church's response</h3>
+        <ul>
+          <li><strong>The one-year rule was not universal.</strong> Where law required a civil ceremony first, the Church allowed immediate sealing. Since May 6, 2019, couples anywhere may marry civilly and be sealed immediately. A one-year wait after baptism still applies to new converts.</li>
+          <li><strong>Exclusion from the sealing continues.</strong> Family members without a recommend still cannot attend the sealing itself, though a civil ceremony beforehand is now easier.</li>
+          <li><strong>Proxy baptisms.</strong> The 1995 agreement and 2010 renewal are documented. The 2012 cases were submissions by individual members in violation of policy; the Church apologized and restricted database access. Anne Frank had been baptized by proxy several times before 2012.</li>
+          <li><strong>A characterization, not a finding.</strong> Many faiths make exclusive truth claims. D&amp;C 1:30 is quoted here in the Church's own words so readers can judge.</li>
+          <li><strong>The Church's position.</strong> Proxy ordinances do not make the dead members and are offered for them to accept or reject; "only true church" refers to priesthood authority, not to the moral worth of others.</li>
+        </ul>
+      </aside>
+
+      <div class="exhibit-cta">
+        <a href="learn-more.html#theme-6" class="exhibit-cta-back">← Back to Theme VI summary</a>
+        <a href="index.html#sign" class="exhibit-cta-btn"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>Sign the Petition <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="field-note">
+    <span class="mark">→</span>
+    <p>Every source above is linked so you can check it yourself. Read the record, then add your name.</p>
+  </div>
+
+</main>
+
+<a href="index.html#sign" class="float-cta" id="floatCta" aria-label="Sign the petition">
+  <span class="float-cta-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+    </svg>
+  </span>
+  <span class="float-cta-text">
+    <span class="float-cta-kicker">Add your name</span>
+    <span class="float-cta-label">Sign<span class="full"> the Petition</span> <span class="float-cta-arrow" aria-hidden="true">→</span></span>
+  </span>
+</a>
+
+<footer id="footer">
+  <p>Presented by <a href="https://rebuttalds.org" target="_blank" rel="noopener">RebuttaLDS.org</a>.
+    These briefs draw on the Associated Press investigation, federal court and SEC records, peer-reviewed
+    and scholarly histories, and the Church's own published essays and canon. Sources were checked as of
+    October 28, 2026; where facts are still developing, the status is stated. Share this page freely.</p>
+  <p class="foot-mono">© 2026 RebuttaLDS.org · Protect the Child · <a href="learn-more.html">Learn More</a> · <a href="#top">Back to top</a></p>
+
+  <div class="foot-legal">
+    <p class="foot-speech">Criticism of religious institutions, their history, and their doctrines
+      is speech protected by the First Amendment to the United States Constitution, which prohibits
+      laws abridging the freedom of speech or of the press.
+      <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank"
+         rel="noopener">Read the First Amendment at constitution.congress.gov&nbsp;→</a></p>
+  </div>
+</footer>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const progressFill = document.getElementById('progressFill');
+  function updateProgress(){
+    const el = document.documentElement;
+    const max = el.scrollHeight - el.clientHeight;
+    progressFill.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, el.scrollTop / max) : 0) + ')';
+  }
+  let progTicking = false;
+  window.addEventListener('scroll', () => {
+    if(!progTicking){ requestAnimationFrame(() => { updateProgress(); progTicking = false; }); progTicking = true; }
+  }, { passive:true });
+  updateProgress();
+
+  const exhibits = document.querySelectorAll('.exhibit');
+  const fades = document.querySelectorAll('.field-note, #footer');
+  function observe(list, cls, opts){
+    if (reduceMotion || !('IntersectionObserver' in window)){ list.forEach(el => el.classList.add(cls)); return; }
+    const io = new IntersectionObserver((items) => {
+      items.forEach(item => { if (item.isIntersecting){ item.target.classList.add(cls); io.unobserve(item.target); } });
+    }, opts);
+    list.forEach(el => io.observe(el));
+  }
+  observe(exhibits, 'in-view', { threshold: 0.02, rootMargin: '0px 0px -60px 0px' });
+  observe(fades, 'is-visible', { threshold: 0.3 });
+
+  // Arriving via an anchor (e.g. evidence-briefs.html#theme-3, #t3-r2): reveal the target section immediately
+  function revealHashTarget(){
+    if (!location.hash) return;
+    const t = document.getElementById(location.hash.slice(1));
+    const ex = t && (t.classList.contains('exhibit') ? t : t.closest('.exhibit'));
+    if (ex) ex.classList.add('in-view');
+  }
+  revealHashTarget();
+  window.addEventListener('hashchange', revealHashTarget);
+
+  // Floating CTA: show after a short scroll; hide while an in-section CTA is on screen or on phones
+  const floatCta = document.getElementById('floatCta');
+  const isPhone = window.matchMedia('(max-width: 640px)');
+  const blockers = new Set();
+  function updateFloatCta(){
+    const scrolled = (window.scrollY || document.documentElement.scrollTop) > 320;
+    const blocked = blockers.size > 0 || isPhone.matches;
+    floatCta.classList.toggle('show', scrolled && !blocked);
+  }
+  if ('IntersectionObserver' in window) {
+    const ctaIO = new IntersectionObserver((items) => {
+      items.forEach(item => { item.isIntersecting ? blockers.add(item.target) : blockers.delete(item.target); });
+      updateFloatCta();
+    }, { threshold: 0 });
+    document.querySelectorAll('.exhibit-cta').forEach(el => ctaIO.observe(el));
+  }
+  window.addEventListener('scroll', updateFloatCta, { passive:true });
+  isPhone.addEventListener('change', updateFloatCta);
+  updateFloatCta();
+
+  const navLinks = document.querySelectorAll('.quicknav-links a[data-nav]');
+  if ('IntersectionObserver' in window) {
+    const navIO = new IntersectionObserver((items) => {
+      items.forEach(item => {
+        const link = document.querySelector('.quicknav-links a[href="#' + item.target.id + '"]');
+        if (item.isIntersecting) { navLinks.forEach(l => l.classList.remove('active')); if (link) link.classList.add('active'); }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+    exhibits.forEach(s => navIO.observe(s));
+  }
+</script>
+
+</body>
+</html>
